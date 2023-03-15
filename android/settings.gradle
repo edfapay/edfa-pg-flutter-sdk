@@ -1,0 +1,12 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'https://jitpack.io'
+            credentials { username 'jp_t35u3134mhdka9fc1vatvmcu6i' }
+        }
+    }
+}
+rootProject.name = 'expresspay_sdk'

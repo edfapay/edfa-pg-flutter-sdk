@@ -1,0 +1,11 @@
+framework module ExpressPaySDK {
+  umbrella header "ExpressPaySDK.h"
+
+  export *
+  module * { export * }
+}
+
+module ExpressPaySDK.Swift {
+  header "ExpressPaySDK-Swift.h"
+  requires objc
+}
