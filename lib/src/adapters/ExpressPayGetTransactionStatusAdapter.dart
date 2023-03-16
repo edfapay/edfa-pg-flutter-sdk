@@ -1,13 +1,13 @@
 
 import 'dart:convert';
 
-import 'package:expresspay_sdk/expresspay_sdk.dart';
 import 'package:expresspay_sdk/src/adapters/BaseAdapter.dart';
-import 'package:expresspay_sdk/src/adapters/callbacks/CreditVoidResponseCallback.dart';
+import 'package:expresspay_sdk/src/adapters/callbacks/TransactionStatusResponseCallback.dart';
+import 'package:expresspay_sdk/src/response/gettransactionstatus/ExpresspayTransactionStatusResult.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
-class ExpresspayCreditVoidAdapter extends BaseAdapter{
+class ExpressPayGetTransactionStatusAdapter extends BaseAdapter{
 
   // transactionId = selectedTransaction.id,
   // payerEmail = selectedTransaction.payerEmail,
@@ -17,8 +17,7 @@ class ExpresspayCreditVoidAdapter extends BaseAdapter{
     required String transactionId,
     required String payerEmail,
     required String cardNumber,
-    required double amount,
-    required CreditVoidResponseCallback? onResponse,
+    required TransactionStatusResponseCallback? onResponse,
     required Function(dynamic)? onFailure,
     required Function(Map)? onResponseJSON,
   }){
@@ -27,17 +26,16 @@ class ExpresspayCreditVoidAdapter extends BaseAdapter{
       "transactionId" : transactionId,
       "payerEmail" : payerEmail,
       "cardNumber" : cardNumber,
-      "amount" : amount,
     };
 
-    startCreditVoid(params).listen((event) {
+    startTransactionsStatus(params).listen((event) {
       Log(event);
       if(event is Map){
-        ExpresspayCreditVoidResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
+        ExpresspayTransactionStatusResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
       }
 
     });
 
-    Log("[ExpresspayCreditVoidAdapter.execute][Params] ${jsonEncode(params)}");
+    Log("[ExpresspayTransactionStatusAdapter.execute][Params] ${jsonEncode(params)}");
   }
 }

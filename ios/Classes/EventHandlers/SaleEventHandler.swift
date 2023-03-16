@@ -37,7 +37,7 @@ class SaleEventHandler : NSObject, FlutterStreamHandler{
                 card: ExpressPayCard.from(dictionary: card),
                 payer: ExpressPayPayer.from(dictionary: payer),
                 termUrl3ds: "https://expresspay.sa",
-                options: nil
+                options: nil,
                 auth: auth,
                 callback: handleResponse
             )

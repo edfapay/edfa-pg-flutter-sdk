@@ -1,7 +1,7 @@
 name: expresspay_sdk
 description: ExpressPay Flutter plugin responsable for help to integerate ExpressPay payment system in to your apps in very precise way.
-version: 1.0.1
-homepage: https://github.com/ExpresspaySa/expresspay-flutter-sdk
+version: 1.0.6
+homepage: https://github.com/a2zZuhaib/expresspay-flutter-sdk
 
 
 # flutter pub publish --force  (Publish Forcefully Avoiding Lint Warning)

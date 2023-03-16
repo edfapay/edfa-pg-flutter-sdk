@@ -3,11 +3,11 @@ import 'dart:convert';
 
 import 'package:expresspay_sdk/expresspay_sdk.dart';
 import 'package:expresspay_sdk/src/adapters/BaseAdapter.dart';
-import 'package:expresspay_sdk/src/adapters/callbacks/CaptureResponseCallback.dart';
+import 'package:expresspay_sdk/src/adapters/callbacks/TransactionDetailsResponseCallback.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
-class ExpresspayCaptureAdapter extends BaseAdapter{
+class ExpressPayGetTransactionDetailsAdapter extends BaseAdapter{
 
   // transactionId = selectedTransaction.id,
   // payerEmail = selectedTransaction.payerEmail,
@@ -17,26 +17,26 @@ class ExpresspayCaptureAdapter extends BaseAdapter{
     required String transactionId,
     required String payerEmail,
     required String cardNumber,
-    required double amount,
-    required CaptureResponseCallback? onResponse,
+    required TransactionDetailsResponseCallback? onResponse,
     required Function(dynamic)? onFailure,
     required Function(Map)? onResponseJSON,
   }){
+
 
     final params = {
       "transactionId" : transactionId,
       "payerEmail" : payerEmail,
       "cardNumber" : cardNumber,
-      "amount" : amount,
     };
 
-    startCapture(params).listen((event) {
+    startTransactionsDetail(params).listen((event) {
       Log(event);
       if(event is Map){
-        ExpresspayCaptureResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
+        ExpresspayTransactionDetailResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON);
       }
+
     });
 
-    Log("[ExpresspayCaptureAdapter.execute][Params] ${jsonEncode(params)}");
+    Log("[ExpresspayTransactionDetailAdapter.execute][Params] ${jsonEncode(params)}");
   }
 }

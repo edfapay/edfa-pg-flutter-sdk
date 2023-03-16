@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import '../../expresspay_sdk.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
-class ExpresspaySaleAdapter extends BaseAdapter{
+class ExpressPaySaleAdapter extends BaseAdapter{
 
   execute({
     required ExpresspaySaleOrder order,

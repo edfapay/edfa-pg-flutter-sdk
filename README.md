@@ -2,13 +2,13 @@
 
 ![](https://jitpack.io/v/expresspay/expresspay-android-sdk.svg) | [View SDK Wiki](https://github.com/a2zZuhaib/expresspay-flutter-sdk/wiki) | [Report new issue](https://github.com/a2zZuhaib/expresspay-flutter-sdk/issues/new)
 
-# Expresspay Flutter SDK & Sample
+# Expresspay Flutter SDK & [Sample](https://github.com/a2zZuhaib/expresspay-flutter-sdk-sample)
 
 Expresspay is a white-label payment software provider. Thanks to our 15+ years of experience in the payment industry, we’ve developed a state-of-the-art white-label payment system that ensures smooth and uninterrupted payment flow for merchants across industries.
 
 <p align="center">
   <a href="https://expresspay.sa">
-      <img src="/media/header.png" alt="Expresspay" width="400px"/>
+      <img src="https://github.com/a2zZuhaib/expresspay-flutter-sdk/blob/main/media/header.png" alt="Expresspay" width="400px"/>
   </a>
 </p>
 
@@ -39,6 +39,7 @@ allprojects {
 
 **Setup iOS**
 iOS does not required any setup just install flutter plugin where the `iOS framewework` is embedded within the plugin in iOS plaform directory.
+If you need to enable `Apple Pay` in your app it can be enable by following the instructions at [Link](https://github.com/a2zZuhaib/expresspay-flutter-sdk/wiki/Express-ApplePay-Payment)
 
 **Intalling Flutter Plugin**
 In the `dependencies:` section of your `pubspec.yaml`, add the following lines:

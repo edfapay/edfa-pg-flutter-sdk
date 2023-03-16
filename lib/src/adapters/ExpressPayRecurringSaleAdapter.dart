@@ -7,7 +7,7 @@ import 'package:expresspay_sdk/src/adapters/callbacks/RecurringSaleResponseCallb
 import 'package:flutter/cupertino.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
-class ExpresspayRecurringSaleAdapter extends BaseAdapter{
+class ExpressPayRecurringSaleAdapter extends BaseAdapter{
   // order = order,
   // options = recurringOptions,
   // payerEmail = selectedTransaction.payerEmail,
