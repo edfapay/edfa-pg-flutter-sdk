@@ -385,6 +385,7 @@ SWIFT_CLASS("_TtC13ExpressPaySDK23TextViewInputController")
 
 
 
+
 #endif
 #if defined(__cplusplus)
 #endif

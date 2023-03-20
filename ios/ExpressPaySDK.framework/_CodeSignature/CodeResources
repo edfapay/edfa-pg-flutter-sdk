@@ -10,11 +10,11 @@
 		</data>
 		<key>CardDetailViewController.nib</key>
 		<data>
-		SkWqjOAORaIKrqf80tHN1I7KPN8=
+		TJud4bNuIrXZDqwskfeImBfBLwI=
 		</data>
 		<key>Headers/ExpressPaySDK-Swift.h</key>
 		<data>
-		aqHAbeq3XJpXkQW0AZnqFURaUe0=
+		QdoZvLBKs9rqzOEF2X64TBld1t4=
 		</data>
 		<key>Headers/ExpressPaySDK.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Modules/ExpressPaySDK.swiftmodule/arm64-apple-ios.abi.json</key>
 		<data>
-		220FocGFwl5jet5JIImAwv6W+5U=
+		YOclAGY7AgfgmzOKJw7T7bP12PE=
 		</data>
 		<key>Modules/ExpressPaySDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/ExpressPaySDK.swiftmodule/arm64-apple-ios.swiftdoc</key>
 		<data>
-		KUsFyzdjrU8xHVN8JBRJEYxwdNw=
+		0Jf6tTH1xA1iI9LT1ErpJsi6wy0=
 		</data>
 		<key>Modules/ExpressPaySDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
 		<data>
@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/ExpressPaySDK.swiftmodule/arm64-apple-ios.swiftmodule</key>
 		<data>
-		QHrtLeaIR0mCohnsQoBwBDTal1E=
+		XEnvHwB/NYEY3GyufdJhsFPeSkA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -62,14 +62,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IfFdRYsI+ND6SlBAO44ZaVD4C6ZwYrcFJ2C0MPsQp90=
+			z8AUP789hCerNc58dOKkbMpGZyeVCasqPnNXSlQFqzY=
 			</data>
 		</dict>
 		<key>Headers/ExpressPaySDK-Swift.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			D+r3RH9BYsYaTHi/tZI1JfGKLFAgMKwRnKl+lQwm7FY=
+			msFA3DhBIesj+OsKonK2MlVQj7Ycp7eRW2dtxmV00w0=
 			</data>
 		</dict>
 		<key>Headers/ExpressPaySDK.h</key>
@@ -83,7 +83,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6uQ7aN4+UOfIaNFHWcvKHPsLSSuXTLHPPeQmtoMfdnY=
+			XA/pD12Wb5jAd0aiNRHcmm7Q1aFLyXo1MB8fJkJVyC8=
 			</data>
 		</dict>
 		<key>Modules/ExpressPaySDK.swiftmodule/arm64-apple-ios.private.swiftinterface</key>
@@ -97,7 +97,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			FjD6FDns79LNhic4AW+x46PbAtL14zS48aPP1Yiv5aI=
+			uvSFNR0IHEkzVXdT8XvTDEmJ9dw8dEl3UjucsT63Bsg=
 			</data>
 		</dict>
 		<key>Modules/ExpressPaySDK.swiftmodule/arm64-apple-ios.swiftinterface</key>
@@ -111,7 +111,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			7+dywD5enbj2X7z3qz5L9ksEFM4J0FyDDwArHlApiBo=
+			3QNcc2UTohZ+6U0f3AAmC4JtZfmf2p7UzkQauOZckeE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

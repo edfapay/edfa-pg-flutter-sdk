@@ -41,7 +41,7 @@ allprojects {
 iOS does not required any setup just install flutter plugin where the `iOS framewework` is embedded within the plugin in iOS plaform directory.
 If you need to enable `Apple Pay` in your app it can be enable by following the instructions at [Link](https://github.com/a2zZuhaib/expresspay-flutter-sdk/wiki/Express-ApplePay-Payment)
 
-**Intalling Flutter Plugin**
+## Intalling Flutter Plugin**
 In the `dependencies:` section of your `pubspec.yaml`, add the following lines:
 
 ```pubspec.yaml
@@ -49,6 +49,17 @@ dependencies:
   intl: ^0.17.0
   expresspay_sdk: any
 ```
+
+## Initialize SDK
+```dart
+ExpresspaySdk.instance.config(
+    key: MERCHANT_CLIENT_KEY, // Your Secret Merchant Key
+    password: MERCHANT_CLIENT_PASSWORD,  // Your Secret Merchant Password
+    enableDebug: true
+);
+```
+[More Detail](https://github.com/a2zZuhaib/expresspay-flutter-sdk/wiki)
+
 
 ## Quick Payment Implementation
 [**Card Payment for iOS/Android**](https://github.com/a2zZuhaib/expresspay-flutter-sdk/wiki/Express-Quick-Card-Payment)
