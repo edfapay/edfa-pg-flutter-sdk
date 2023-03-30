@@ -15,7 +15,7 @@ class ExpressPayRecurringSaleAdapter extends BaseAdapter{
   // auth = isAuth,
 
   execute({
-    required ExpresspaySaleOrder order,
+    required ExpresspayOrder order,
     required ExpresspayRecurringOptions recurringOptions,
     required String payerEmail,
     required String cardNumber,

@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 /*
  * Property of Expresspay (https://expresspay.sa).
  */
@@ -30,13 +31,15 @@ enum ExpresspayAction{
 
     /// Following actions can not be made by request, they are created by Payment Platform in certain circumstances
     /// (e.g. issuer initiated chargeback) and you receive callback as a result.
-    CHARGEBACK("CHARGEBACK");
+    CHARGEBACK("CHARGEBACK"),
+
+    NONE("NONE");
 
     final String action;
     const ExpresspayAction(this.action);
 
 
     factory ExpresspayAction.of(String? id) {
-        return values.firstWhere((e) => e.action == id);
+        return values.firstWhereOrNull((e) => e.action == id) ?? NONE;
     }
 }

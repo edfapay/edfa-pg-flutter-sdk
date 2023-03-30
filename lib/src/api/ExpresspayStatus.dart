@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 /*
  * Property of Expresspay (https://expresspay.sa).
  */
@@ -30,13 +31,15 @@ enum ExpresspayStatus{
     CHARGEBACK("CHARGEBACK"),
 
     /// Not successful transaction.
-    DECLINED("DECLINED");
+    DECLINED("DECLINED"),
+
+    NONE("NONE");
 
     final String status;
     const ExpresspayStatus(this.status);
 
 
     factory ExpresspayStatus.of(String? id) {
-        return values.firstWhere((e) => e.status == id);
+        return values.firstWhereOrNull((e) => e.status == id) ?? NONE;
     }
 }

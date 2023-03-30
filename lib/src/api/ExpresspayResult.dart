@@ -1,3 +1,5 @@
+import 'package:collection/collection.dart';
+
 /*
  * Property of Expresspay (https://expresspay.sa).
  */
@@ -30,6 +32,6 @@ enum  ExpresspayResult{
 
 
     factory ExpresspayResult.of(String? id) {
-        return values.firstWhere((e) => e.result == (id ?? "NONE"));
+        return values.firstWhereOrNull((e) => e.result == id) ?? NONE;
     }
 }

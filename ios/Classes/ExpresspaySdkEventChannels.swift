@@ -46,7 +46,12 @@ public class ExpressPaySDKEventChannels: NSObject{
         applepay?.setStreamHandler(ApplePayEventHandler())
         
         sale?.setStreamHandler(SaleEventHandler())
-    
+        recurringSale?.setStreamHandler(RecurringSaleEventHandler())
+        capture?.setStreamHandler(CaptureEventHandler())
+        creditVoid?.setStreamHandler(CreditVoidEventHandler())
+        transactionDetail?.setStreamHandler(TransactionDetailEventHandler())
+        transactionStatus?.setStreamHandler(TransactionStatusEventHandler())
+
     }
     
 }

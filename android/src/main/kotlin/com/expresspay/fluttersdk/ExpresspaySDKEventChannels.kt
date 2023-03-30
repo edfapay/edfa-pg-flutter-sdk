@@ -1,8 +1,7 @@
 package com.expresspay.fluttersdk
 
 import android.content.Context
-import com.expresspay.fluttersdk.eventhandlers.CardPayEventHandler
-import com.expresspay.fluttersdk.eventhandlers.SaleEventHandler
+import com.expresspay.fluttersdk.eventhandlers.*
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.EventChannel
 
@@ -33,8 +32,13 @@ class ExpresspaySDKEventChannels{
     transactionDetail = EventChannel(messenger,"com.expresspay.sdk.transactiondetail")
     transactionLogs = EventChannel(messenger,"com.expresspay.sdk.transactionlogs")
 
-    cardpay?.setStreamHandler(CardPayEventHandler(context))
     sale?.setStreamHandler(SaleEventHandler())
+    recurringSale?.setStreamHandler(RecurringSaleEventHandler())
+    capture?.setStreamHandler(CaptureEventHandler())
+    creditVoid?.setStreamHandler(CreditVoidEventHandler())
+    transactionStatus?.setStreamHandler(GetTransactionStatusEventHandler())
+    transactionDetail?.setStreamHandler(GetTransactionDetailsEventHandler())
+    cardpay?.setStreamHandler(CardPayEventHandler(context))
 
   }
 }

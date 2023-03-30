@@ -9,6 +9,11 @@ import 'dart:async';
 
 export 'src/adapters/ExpressPayAdapters.dart';
 export 'src/adapters/callbacks/SaleResponseCallback.dart';
+export 'src/adapters/callbacks/RecurringSaleResponseCallback.dart';
+export 'src/adapters/callbacks/CaptureResponseCallback.dart';
+export 'src/adapters/callbacks/CreditVoidResponseCallback.dart';
+export 'src/adapters/callbacks/TransactionStatusResponseCallback.dart';
+export 'src/adapters/callbacks/TransactionDetailsResponseCallback.dart';
 
 export 'src/request/ExpresspayCard.dart';
 export 'src/request/ExpresspayTestCards.dart';
@@ -42,6 +47,9 @@ export 'src/response/gettransactiondetails/ExpresspayTransaction.dart';
 export 'src/response/gettransactiondetails/ExpresspayTransactionDetailsSuccess.dart';
 export 'src/response/gettransactiondetails/ExpresspayTransactionDetailResult.dart';
 
+export 'src/response/gettransactionstatus/ExpresspayTransactionStatusSuccess.dart';
+export 'src/response/gettransactionstatus/ExpresspayTransactionStatusResult.dart';
+
 
 export 'src/response/sale/ExpresspayRedirectParams.dart';
 export 'src/response/sale/ExpresspaySale3DS.dart';
@@ -54,6 +62,11 @@ export 'src/response/sale/ExpresspaySaleResult.dart';
 
 export 'src/cardpay/ExpressCardPay.dart';
 export 'src/applepay/ExpressApplePay.dart';
+
+
+export 'src/api/ExpresspayAction.dart';
+export 'src/api/ExpresspayStatus.dart';
+export 'src/api/ExpresspayResult.dart';
 
 
 

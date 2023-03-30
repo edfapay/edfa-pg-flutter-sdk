@@ -249,8 +249,9 @@ public struct ExpressPayCaptureSuccess : ExpressPaySDK.DetailsExpressPayResultPr
   public let orderId: Swift.String
   public let transactionId: Swift.String
 }
-extension ExpressPaySDK.ExpressPayCaptureSuccess : Swift.Decodable {
+extension ExpressPaySDK.ExpressPayCaptureSuccess : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public enum ExpressPayTransactionStatus : Swift.String, Swift.Codable {
   case fail
@@ -610,8 +611,9 @@ public struct ExpressPayCreditvoidSuccess : ExpressPaySDK.ExpressPayResultProtoc
   public let orderId: Swift.String
   public let transactionId: Swift.String
 }
-extension ExpressPaySDK.ExpressPayCreditvoidSuccess : Swift.Decodable {
+extension ExpressPaySDK.ExpressPayCreditvoidSuccess : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
 }
 public typealias ExpressPayGetTransactionDetailsCallback = ExpressPaySDK.ExpressPayCallback<ExpressPaySDK.ExpressPayGetTransactionDetailsResult>
 public enum ExpressPayGetTransactionDetailsResult : Swift.Decodable {
