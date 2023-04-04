@@ -3,8 +3,6 @@ import 'dart:convert';
 
 import 'package:expresspay_sdk/expresspay_sdk.dart';
 import 'package:expresspay_sdk/src/adapters/BaseAdapter.dart';
-import 'package:expresspay_sdk/src/adapters/callbacks/CaptureResponseCallback.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
 class ExpressPayCaptureAdapter extends BaseAdapter{
@@ -32,9 +30,7 @@ class ExpressPayCaptureAdapter extends BaseAdapter{
 
     startCapture(params).listen((event) {
       Log(event);
-      if(event is Map){
-        ExpresspayCaptureResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
-      }
+      ExpresspayCaptureResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
     });
 
     Log("[ExpresspayCaptureAdapter.execute][Params] ${jsonEncode(params)}");

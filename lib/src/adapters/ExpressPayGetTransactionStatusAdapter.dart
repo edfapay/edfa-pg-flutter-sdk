@@ -4,7 +4,6 @@ import 'dart:convert';
 import 'package:expresspay_sdk/src/adapters/BaseAdapter.dart';
 import 'package:expresspay_sdk/src/adapters/callbacks/TransactionStatusResponseCallback.dart';
 import 'package:expresspay_sdk/src/response/gettransactionstatus/ExpresspayTransactionStatusResult.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
 class ExpressPayGetTransactionStatusAdapter extends BaseAdapter{
@@ -30,10 +29,7 @@ class ExpressPayGetTransactionStatusAdapter extends BaseAdapter{
 
     startTransactionsStatus(params).listen((event) {
       Log(event);
-      if(event is Map){
-        ExpresspayTransactionStatusResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
-      }
-
+      ExpresspayTransactionStatusResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
     });
 
     Log("[ExpresspayTransactionStatusAdapter.execute][Params] ${jsonEncode(params)}");

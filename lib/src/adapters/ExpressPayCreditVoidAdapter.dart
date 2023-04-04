@@ -3,8 +3,6 @@ import 'dart:convert';
 
 import 'package:expresspay_sdk/expresspay_sdk.dart';
 import 'package:expresspay_sdk/src/adapters/BaseAdapter.dart';
-import 'package:expresspay_sdk/src/adapters/callbacks/CreditVoidResponseCallback.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
 class ExpressPayCreditVoidAdapter extends BaseAdapter{
@@ -32,10 +30,7 @@ class ExpressPayCreditVoidAdapter extends BaseAdapter{
 
     startCreditVoid(params).listen((event) {
       Log(event);
-      if(event is Map){
-        ExpresspayCreditVoidResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
-      }
-
+      ExpresspayCreditVoidResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
     });
 
     Log("[ExpresspayCreditVoidAdapter.execute][Params] ${jsonEncode(params)}");

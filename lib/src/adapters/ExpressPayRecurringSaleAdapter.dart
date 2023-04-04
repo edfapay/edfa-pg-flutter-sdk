@@ -3,8 +3,6 @@ import 'dart:convert';
 
 import 'package:expresspay_sdk/expresspay_sdk.dart';
 import 'package:expresspay_sdk/src/adapters/BaseAdapter.dart';
-import 'package:expresspay_sdk/src/adapters/callbacks/RecurringSaleResponseCallback.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
 class ExpressPayRecurringSaleAdapter extends BaseAdapter{
@@ -35,9 +33,7 @@ class ExpressPayRecurringSaleAdapter extends BaseAdapter{
 
     startRecurringSale(params).listen((event) {
       Log(event);
-      if(event is Map){
-        ExpresspaySaleResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
-      }
+      ExpresspaySaleResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, );
     });
 
     Log("[ExpresspayRecurringSaleAdapter.execute][Params] ${jsonEncode(params)}");

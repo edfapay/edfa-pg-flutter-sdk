@@ -17,19 +17,15 @@ class ConfigMethodHandler(private val context:Context, private val call:MethodCa
                         ExpresspaySdk.init(context, key, password, "https://api.expresspay.sa/post")
                         (get(2) as? Boolean)?.let { enableDebug ->
                             ENABLE_DEBUG = enableDebug
+                            if(ENABLE_DEBUG)
+                                ExpresspaySdk.enableDebug()
+                            else
+                                ExpresspaySdk.disableDebug()
                         }
                     }
                 }
             }
         }
-    }
-
-    private fun enableOkHttplogs(){
-//        val logging = HttpLoggingInterceptor()
-//        logging.setLevel(Level.BASIC)
-//        val client: OkHttpClient = Builder()
-//            .addInterceptor(logging)
-//            .build()
     }
 
 }

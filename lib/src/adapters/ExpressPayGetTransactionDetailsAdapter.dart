@@ -3,8 +3,6 @@ import 'dart:convert';
 
 import 'package:expresspay_sdk/expresspay_sdk.dart';
 import 'package:expresspay_sdk/src/adapters/BaseAdapter.dart';
-import 'package:expresspay_sdk/src/adapters/callbacks/TransactionDetailsResponseCallback.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
 class ExpressPayGetTransactionDetailsAdapter extends BaseAdapter{
@@ -31,10 +29,7 @@ class ExpressPayGetTransactionDetailsAdapter extends BaseAdapter{
 
     startTransactionsDetail(params).listen((event) {
       Log(event);
-      if(event is Map){
-        ExpresspayTransactionDetailResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON);
-      }
-
+      ExpresspayTransactionDetailResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON);
     });
 
     Log("[ExpresspayTransactionDetailAdapter.execute][Params] ${jsonEncode(params)}");

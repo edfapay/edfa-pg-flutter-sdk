@@ -5,7 +5,6 @@ import 'package:expresspay_sdk/expresspay_sdk.dart';
 import 'package:expresspay_sdk/src/adapters/BaseAdapter.dart';
 import 'package:expresspay_sdk/src/adapters/callbacks/CardPayResponseCallback.dart';
 import 'package:expresspay_sdk/src/cardpay/ExpressCardPayResult.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
 
 class ExpressCardPayAdapter extends BaseAdapter{
@@ -23,9 +22,7 @@ class ExpressCardPayAdapter extends BaseAdapter{
 
     startCardPay(params).listen((event) {
       Log(event);
-      if (event is Map) {
-        ExpressCardPayResult(event).triggerCallbacks(callback);
-      }
+      ExpressCardPayResult(event).triggerCallbacks(callback);
     });
 
     Log("[ExpresspaySaleAdapter.execute][Params] ${jsonEncode(params)}");

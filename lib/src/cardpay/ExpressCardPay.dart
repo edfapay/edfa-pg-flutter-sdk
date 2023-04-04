@@ -65,6 +65,11 @@ class ExpressCardPay{
 
         }
     );
+    Future.delayed(const Duration(milliseconds: 200)).then((value) {
+      if(_onPresent != null) {
+        _onPresent!(context);
+      }
+    });
   }
 
   Widget widget(){

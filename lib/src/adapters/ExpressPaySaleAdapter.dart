@@ -2,7 +2,6 @@
 import 'dart:convert';
 
 import 'package:expresspay_sdk/src/adapters/BaseAdapter.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../../expresspay_sdk.dart';
 import 'package:expresspay_sdk/src/Helpers.dart';
@@ -31,9 +30,7 @@ class ExpressPaySaleAdapter extends BaseAdapter{
 
     startSale(params).listen((event) {
       Log(event);
-      if(event is Map){
-        ExpresspaySaleResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, onFailure: onFailure);
-      }
+      ExpresspaySaleResult(event).triggerCallbacks(onResponse, onResponseJSON: onResponseJSON, onFailure: onFailure);
     });
 
     Log("[ExpresspaySaleAdapter.execute][Params] ${jsonEncode(params)}");
