@@ -18,7 +18,9 @@ xcodebuild archive \
 -destination 'generic/platform=iOS Simulator' \
 -archivePath './build/ExpressPaySDK.framework-iphonesimulator.xcarchive' \
 SKIP_INSTALL=NO \
-BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+BUILD_LIBRARIES_FOR_DISTRIBUTION=YES \
+MARKETING_VERSION=0.0.6 \
+CURRENT_PROJECT_VERSION=0.0.6
 
 
 // Archive Framework for iOS
@@ -28,7 +30,9 @@ xcodebuild archive \
 -destination 'generic/platform=iOS' \
 -archivePath './build/ExpressPaySDK.framework-iphoneos.xcarchive' \
 SKIP_INSTALL=NO \
-BUILD_LIBRARIES_FOR_DISTRIBUTION=YES
+BUILD_LIBRARIES_FOR_DISTRIBUTION=YES \
+MARKETING_VERSION=0.0.6 \
+CURRENT_PROJECT_VERSION=0.0.6
 
 */
 
