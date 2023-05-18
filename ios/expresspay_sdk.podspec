@@ -5,26 +5,21 @@
 Pod::Spec.new do |s|
   s.name             = 'expresspay_sdk'
   s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.summary          = 'A Flutter plugin for ExpressPaySDK.'
   s.description      = <<-DESC
-A new Flutter plugin project.
+ExpressPay Flutter plugin was developed and designed with one purpose: to help the iOS/Android developers easily integrate the ExpressPay API Payment Platform for a specific merchant.
                        DESC
-  s.homepage         = 'http://example.com'
+  s.homepage         = 'https://expresspay.sa'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Your Company' => 'email@example.com' }
+  s.author           = { 'Express Pay' => 'itsupport@expresspay.sa' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.platform = :ios, '9.0'
+  s.dependency 'ExpressPaySDK'
+  s.platform = :ios, '11.0'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
   s.swift_version = '5.0'
 
-
-  # https://github.com/flutter/flutter/issues/51601
-  s.preserve_paths = 'ExpressPaySDK.framework'
-  s.resources = ['ExpressPaySDK/*']
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework ExpressPaySDK' }
-  s.vendored_frameworks = 'ExpressPaySDK.framework'
 end
