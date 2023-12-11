@@ -1,9 +1,9 @@
 
-import 'package:expresspay_sdk/expresspay_sdk.dart';
-import 'package:expresspay_sdk/src/adapters/callbacks/BaseResponseCallback.dart';
+import 'package:edfapg_sdk/edfapg_sdk.dart';
+import 'package:edfapg_sdk/src/adapters/callbacks/BaseResponseCallback.dart';
 
 class CreditVoidResponseCallback extends BaseResponseCallback{
-  final Function(ExpresspayCreditVoidSuccess result) success;
+  final Function(EdfaPgCreditVoidSuccess result) success;
 
   CreditVoidResponseCallback({
     required this.success,

@@ -1,18 +1,18 @@
 
 import 'package:flutter/services.dart';
 
-const SALE_EVENT_CHANNEL = "com.expresspay.sdk.sale" ;
-const RECURRING_SALE_EVENT_CHANNEL = "com.expresspay.sdk.recurringsale";
-const CAPTURE_EVENT_CHANNEL = "com.expresspay.sdk.capture" ;
-const CREDIT_VOID_EVENT_CHANNEL = "com.expresspay.sdk.creditvoid" ;
-const TRANSACTION_STATUS_EVENT_CHANNEL = "com.expresspay.sdk.transactionstatus";
-const TRANSACTION_DETAILS_EVENT_CHANNEL = "com.expresspay.sdk.transactiondetail";
-const TRANSACTION_LOGS_EVENT_CHANNEL = "com.expresspay.sdk.transactionlogs";
+const SALE_EVENT_CHANNEL = "com.edfapg.flutter.sdk.sale" ;
+const RECURRING_SALE_EVENT_CHANNEL = "com.edfapg.flutter.sdk.recurringsale";
+const CAPTURE_EVENT_CHANNEL = "com.edfapg.flutter.sdk.capture" ;
+const CREDIT_VOID_EVENT_CHANNEL = "com.edfapg.flutter.sdk.creditvoid" ;
+const TRANSACTION_STATUS_EVENT_CHANNEL = "com.edfapg.flutter.sdk.transactionstatus";
+const TRANSACTION_DETAILS_EVENT_CHANNEL = "com.edfapg.flutter.sdk.transactiondetail";
+const TRANSACTION_LOGS_EVENT_CHANNEL = "com.edfapg.flutter.sdk.transactionlogs";
 
-const CARD_PAY_EVENT_CHANNEL = "com.expresspay.sdk.cardpay";
-const APPLE_PAY_EVENT_CHANNEL = "com.expresspay.sdk.applepay";
+const CARD_PAY_EVENT_CHANNEL = "com.edfapg.flutter.sdk.cardpay";
+const APPLE_PAY_EVENT_CHANNEL = "com.edfapg.flutter.sdk.applepay";
 
-abstract class ExpresspayPlatformChannels{
+abstract class EdfaPgPlatformChannels{
 
   final sale = const EventChannel(SALE_EVENT_CHANNEL);
   final recurringSale = const EventChannel(RECURRING_SALE_EVENT_CHANNEL);

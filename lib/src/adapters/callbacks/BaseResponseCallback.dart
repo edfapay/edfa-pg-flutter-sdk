@@ -1,8 +1,8 @@
 
-import 'package:expresspay_sdk/expresspay_sdk.dart';
+import 'package:edfapg_sdk/edfapg_sdk.dart';
 
 class BaseResponseCallback{
-  final Function(ExpresspayError result) error;
+  final Function(EdfaPgError result) error;
 
   BaseResponseCallback({
     required this.error

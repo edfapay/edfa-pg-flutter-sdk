@@ -1,5 +1,5 @@
 
-import 'package:expresspay_sdk/expresspay_sdk.dart';
+import 'package:edfapg_sdk/edfapg_sdk.dart';
 
 class RecurringSaleResponseCallback extends SaleResponseCallback{
 

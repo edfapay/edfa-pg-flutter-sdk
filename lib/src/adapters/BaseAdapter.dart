@@ -1,9 +1,9 @@
-import 'package:expresspay_sdk/src/event_channels.dart';
+import 'package:edfapg_sdk/src/event_channels.dart';
 
 
 typedef StreamReturnType = Stream<Map>;
 
-abstract class BaseAdapter extends ExpresspayPlatformChannels{
+abstract class BaseAdapter extends EdfaPgPlatformChannels{
   StreamReturnType startSale(Map<String,dynamic> params) => sale.receiveBroadcastStream(params).map((event) => event as Map);
   StreamReturnType startRecurringSale(Map<String,dynamic> params) => recurringSale.receiveBroadcastStream(params).map((event) => event as Map);
   StreamReturnType startCapture(Map<String,dynamic> params) => capture.receiveBroadcastStream(params).map((event) => event as Map);

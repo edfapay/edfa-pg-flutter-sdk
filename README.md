@@ -31,7 +31,6 @@ allprojects {
         jcenter()
         maven {
             url 'https://jitpack.io'
-            credentials { username 'jp_tjnosefflebgig8l3i0q6cgf09' }
         }
     }
 }

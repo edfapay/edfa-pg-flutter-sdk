@@ -1,10 +1,10 @@
 
-import 'package:expresspay_sdk/expresspay_sdk.dart';
-import 'package:expresspay_sdk/src/adapters/callbacks/BaseResponseCallback.dart';
-import 'package:expresspay_sdk/src/response/gettransactiondetails/ExpresspayTransactionDetailsSuccess.dart';
+import 'package:edfapg_sdk/edfapg_sdk.dart';
+import 'package:edfapg_sdk/src/adapters/callbacks/BaseResponseCallback.dart';
+import 'package:edfapg_sdk/src/response/gettransactiondetails/TransactionDetailsSuccess.dart';
 
 class TransactionDetailsResponseCallback extends BaseResponseCallback{
-  final Function(ExpresspayTransactionDetailsSuccess result) success;
+  final Function(EdfaPgTransactionDetailsSuccess result) success;
 
   TransactionDetailsResponseCallback({
     required this.success,

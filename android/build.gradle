@@ -1,17 +1,13 @@
 // https://jitpack.io/docs/ANDROID/#examples
 
-group 'com.expresspay.fluttersdk'
+group 'com.edfapg.flutter.sdk'
 version '1.0.0'
 
 buildscript {
-    ext.kotlin_version = '1.7.20'
+    ext.kotlin_version = '1.8.0'
     repositories {
         google()
         mavenCentral()
-        maven {
-            url 'https://jitpack.io'
-            credentials { username 'jp_tjnosefflebgig8l3i0q6cgf09' }
-        }
     }
 
     dependencies {
@@ -31,7 +27,20 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 34
+
+
+    defaultConfig {
+        applicationId "com.edfapg.flutter.sdk"
+        minSdk 19
+        targetSdk 34
+
+        aarMetadata {
+            minCompileSdk = 19
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -55,7 +64,7 @@ android {
     }
 
     dependencies {
-        implementation 'com.github.ExpresspaySa:expresspay-android-sdk-code:1.0.4'
+        implementation 'com.github.edfapay:edfa-pg-android-sdk:0.0.1' // Add this Line with latest version
         implementation 'com.google.code.gson:gson:2.9.0'
     }
 }

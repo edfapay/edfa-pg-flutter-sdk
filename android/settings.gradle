@@ -5,4 +5,4 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = 'expresspay_sdk'
+rootProject.name = 'edfapg_sdk'
