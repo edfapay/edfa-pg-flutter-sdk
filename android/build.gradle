@@ -20,6 +20,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
+
     }
 }
 
@@ -31,7 +33,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.edfapg.flutter.sdk"
+//        applicationId "com.edfapg.flutter.sdk"
         minSdk 19
         targetSdk 34
 
@@ -64,7 +66,11 @@ android {
     }
 
     dependencies {
-        implementation 'com.github.edfapay:edfa-pg-android-sdk:0.0.1' // Add this Line with latest version
+//        implementation project(path: ':edfa-pg-sdk')
+        // implementation 'com.github.edfapay:edfa-pg-android-sdk:faiz_dev-SNAPSHOT'
+        // Add this Line with latest version
+//        implementation 'com.github.edfapay:edfa-pg-android-sdk:0.0.1'
+        // Add this Line with latest version
         implementation 'com.google.code.gson:gson:2.9.0'
     }
 }
