@@ -66,11 +66,18 @@ android {
     }
 
     dependencies {
-//        implementation project(path: ':edfa-pg-sdk')
-        // implementation 'com.github.edfapay:edfa-pg-android-sdk:faiz_dev-SNAPSHOT'
+//        implementation files('/Users/faizhashmi/Development/SDKs/flutter/bin/cache/artifacts/engine/android-arm64-release/flutter.jar')
+
+//        implementation project(':edfa-pg-sdk')
+        implementation 'com.github.edfapay:edfa-pg-android-sdk:faiz_dev-SNAPSHOT'
         // Add this Line with latest version
 //        implementation 'com.github.edfapay:edfa-pg-android-sdk:0.0.1'
         // Add this Line with latest version
         implementation 'com.google.code.gson:gson:2.9.0'
     }
 }
+
+dependencies {
+//    implementation project(':edfa-pg-sdk')
+}
+

@@ -7,9 +7,13 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
 
-class ConfigMethodHandler(private val context:Context, private val call:MethodCall, private val result: MethodChannel.Result) {
+class ConfigMethodHandler(
+    private val context: Context,
+    private val call: MethodCall,
+    private val result: MethodChannel.Result
+) {
 
-    fun handle(){
+    fun handle() {
         (call.arguments as? List<*>)?.let {
             with(it) {
                 (get(0) as? String)?.let { key ->
@@ -17,7 +21,7 @@ class ConfigMethodHandler(private val context:Context, private val call:MethodCa
                         EdfaPgSdk.init(context, key, password, "https://api.expresspay.sa/post")
                         (get(2) as? Boolean)?.let { enableDebug ->
                             ENABLE_DEBUG = enableDebug
-                            if(ENABLE_DEBUG)
+                            if (ENABLE_DEBUG)
                                 EdfaPgSdk.enableDebug()
                             else
                                 EdfaPgSdk.disableDebug()

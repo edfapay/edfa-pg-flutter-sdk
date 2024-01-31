@@ -1,6 +1,6 @@
 //
 //  SaleEventHandler.swift
-//  expresspay_sdk
+//  edfapay_sdk
 //
 //  Created by Zohaib Kambrani on 03/03/2023.
 //
@@ -8,14 +8,14 @@
 import Foundation
 import Flutter
 import UIKit
-import ExpressPaySDK
+import EdfaPgSdk
 
 
 class TransactionDetailEventHandler : NSObject, FlutterStreamHandler{
     var eventSink:FlutterEventSink? = nil
     
-    private lazy var adapter: ExpressPayGetTransactionDetailsAdapter = {
-        let adapter = ExpressPayAdapterFactory().createGetTransactionDetails()
+    private lazy var adapter: EdfaPgGetTransactionDetailsAdapter = {
+        let adapter = EdfaPgAdapterFactory().createGetTransactionDetails()
         adapter.delegate = self
         return adapter
     }()
@@ -46,7 +46,7 @@ class TransactionDetailEventHandler : NSObject, FlutterStreamHandler{
         return nil
     }
     
-    private func handleResponse(response: ExpressPayResponse<ExpressPayGetTransactionDetailsResult>){
+    private func handleResponse(response: EdfaPgResponse<EdfaPgGetTransactionDetailsResult>){
         
         switch response {
         case .result(let result):
@@ -57,7 +57,7 @@ class TransactionDetailEventHandler : NSObject, FlutterStreamHandler{
                 eventSink?(json)
 
             default: break
-                let json = ["failure" : ["error" : "Unhandled response case at ExpressPayGetTransactionDetailsResult.result"]]
+                let json = ["failure" : ["error" : "Unhandled response case at EdfaPayGetTransactionDetailsResult.result"]]
                 eventSink?(json)
                 
             }
@@ -78,7 +78,7 @@ class TransactionDetailEventHandler : NSObject, FlutterStreamHandler{
             print(exception)
             
         default:
-            let json = ["failure" : ["error" : "Unhandled response case at ExpressPayResponse.result"]]
+            let json = ["failure" : ["error" : "Unhandled response case at EdfaPayResponse.result"]]
             eventSink?(json)
         }
     }
@@ -86,13 +86,13 @@ class TransactionDetailEventHandler : NSObject, FlutterStreamHandler{
 }
 
 
-extension TransactionDetailEventHandler : ExpressPayAdapterDelegate{
+extension TransactionDetailEventHandler : EdfaPgAdapterDelegate{
     
-    func willSendRequest(_ request: ExpressPayDataRequest) {
+    func willSendRequest(_ request: EdfaPgDataRequest) {
         
     }
     
-    func didReceiveResponse(_ reponse: ExpressPayDataResponse?) {
+    func didReceiveResponse(_ reponse: EdfaPgDataResponse?) {
         if let data = reponse?.data,
            let dict = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed){
             eventSink?(["responseJSON" : dict])

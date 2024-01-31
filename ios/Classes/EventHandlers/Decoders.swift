@@ -1,18 +1,18 @@
 //
 //  Codables.swift
-//  expresspay_sdk
+//  edfapay_sdk
 //
 //  Created by Zohaib Kambrani on 03/03/2023.
 //
 
 import Foundation
-import ExpressPaySDK
+import EdfaPgSdk
 
 
 
-extension ExpressPaySaleOrder{
-    static func from(dictionary:[String:Any?]) -> ExpressPaySaleOrder{
-        return ExpressPaySaleOrder(
+extension EdfaPgSaleOrder{
+    static func from(dictionary:[String:Any?]) -> EdfaPgSaleOrder{
+        return EdfaPgSaleOrder(
             id: dictionary["id"] as? String ?? "",
             amount: dictionary["amount"] as? Double ?? 0.0,
             currency: dictionary["currency"] as? String ?? "",
@@ -21,9 +21,9 @@ extension ExpressPaySaleOrder{
     }
 }
 
-extension ExpressPayOrder{
-    static func from_(dictionary:[String:Any?]) -> ExpressPayOrder{
-        return ExpressPayOrder(
+extension EdfaPgOrder{
+    static func from_(dictionary:[String:Any?]) -> EdfaPgOrder{
+        return EdfaPgOrder(
             id: dictionary["id"] as? String ?? "",
             amount: dictionary["amount"] as? Double ?? 0.0,
             description: dictionary["description"] as? String ?? ""
@@ -31,10 +31,10 @@ extension ExpressPayOrder{
     }
 }
 
-extension ExpressPayPayer{
-    static func from(dictionary:[String:Any?]) -> ExpressPayPayer{
+extension EdfaPgPayer{
+    static func from(dictionary:[String:Any?]) -> EdfaPgPayer{
         
-        return ExpressPayPayer(
+        return EdfaPgPayer(
             firstName:  dictionary["firstName"] as? String ?? "",
             lastName: dictionary["lastName"] as? String ?? "",
             address: dictionary["address"] as? String ?? "",
@@ -44,18 +44,18 @@ extension ExpressPayPayer{
             email: dictionary["email"] as? String ?? "",
             phone: dictionary["phone"] as? String ?? "",
             ip: dictionary["ip"] as? String ?? "",
-            options: ExpressPayPayerOptions.from(dictionary: dictionary["options"] as? [String : Any?])
+            options: EdfaPgPayerOptions.from(dictionary: dictionary["options"] as? [String : Any?])
         )
     }
 }
 
 
-extension ExpressPayPayerOptions{
-    static func from(dictionary:[String:Any?]?) -> ExpressPayPayerOptions?{
+extension EdfaPgPayerOptions{
+    static func from(dictionary:[String:Any?]?) -> EdfaPgPayerOptions?{
         if let s = dictionary{
-            return ExpressPayPayerOptions(
+            return EdfaPgPayerOptions(
                middleName: s["middleName"] as? String ?? "",
-               birthdate: ExpressPayDateFormatter().toDate(dob: s["birthdate"] as? String),
+               birthdate:EdfaPayDateFormatter().toDate(dob: s["birthdate"] as? String),
                address2: s["address2"] as? String ?? "",
                state: s["state"] as? String ?? ""
            )
@@ -66,18 +66,18 @@ extension ExpressPayPayerOptions{
 }
 
 
-extension ExpressPayRecurringOptions{
-    static func from(dictionary:[String:Any?]) -> ExpressPayRecurringOptions{
-        return ExpressPayRecurringOptions(
+extension EdfaPgRecurringOptions{
+    static func from(dictionary:[String:Any?]) -> EdfaPgRecurringOptions{
+        return EdfaPgRecurringOptions(
            firstTransactionId: dictionary["firstTransactionId"] as? String ?? "",
            token: dictionary["token"] as? String ?? ""
        )
     }
 }
 
-extension ExpressPayCard{
-    static func from(dictionary:[String:Any?]) -> ExpressPayCard{
-        return ExpressPayCard(
+extension EdfaPgCard{
+    static func from(dictionary:[String:Any?]) -> EdfaPgCard{
+        return EdfaPgCard(
             number: dictionary["number"] as? String ?? "",
             expireMonth: dictionary["expireMonth"] as? Int ?? 0,
             expireYear:  dictionary["expireYear"] as? Int ?? 0,

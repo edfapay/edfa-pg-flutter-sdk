@@ -5,9 +5,9 @@
 Pod::Spec.new do |s|
   s.name             = 'edfapg_sdk'
   s.version          = '0.0.1'
-  s.summary          = 'A Flutter plugin for ExpressPaySDK.'
+  s.summary          = 'A Flutter plugin for EdfaPaymentSDK.'
   s.description      = <<-DESC
-ExpressPay Flutter plugin was developed and designed with one purpose: to help the iOS/Android developers easily integrate the ExpressPay API Payment Platform for a specific merchant.
+EdfaPgSdk Flutter plugin was developed and designed with one purpose: to help the iOS/Android developers easily integrate the ExpressPay API Payment Platform for a specific merchant.
                        DESC
   s.homepage         = 'https://edfapay.com'
   s.license          = { :file => '../LICENSE' }

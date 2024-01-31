@@ -1,6 +1,6 @@
 //
 //  SaleEventHandler.swift
-//  expresspay_sdk
+//  edfapay_sdk
 //
 //  Created by Zohaib Kambrani on 03/03/2023.
 //
@@ -8,14 +8,14 @@
 import Foundation
 import Flutter
 import UIKit
-import ExpressPaySDK
+import EdfaPgSdk
 
 
 class CaptureEventHandler : NSObject, FlutterStreamHandler{
     var eventSink:FlutterEventSink? = nil
     
-    private lazy var adapter: ExpressPayCaptureAdapter = {
-        let adapter = ExpressPayAdapterFactory().createCapture()
+    private lazy var adapter: EdfaPgCaptureAdapter = {
+        let adapter = EdfaPgAdapterFactory().createCapture()
         adapter.delegate = self
         return adapter
     }()
@@ -48,7 +48,7 @@ class CaptureEventHandler : NSObject, FlutterStreamHandler{
         return nil
     }
     
-    private func handleResponse(response: ExpressPayResponse<ExpressPayCaptureResult>){
+    private func handleResponse(response: EdfaPgResponse<EdfaPgCaptureResult>){
         
         switch response {
         case .result(let result):
@@ -63,7 +63,7 @@ class CaptureEventHandler : NSObject, FlutterStreamHandler{
                 eventSink?(json)
 
             default: break
-                let json = ["failure" : ["error" : "Unhandled response case at ExpressPaySaleResult.result"]]
+                let json = ["failure" : ["error" : "Unhandled response case at EdfaPaySaleResult.result"]]
                 eventSink?(json)
                 
             }
@@ -84,7 +84,7 @@ class CaptureEventHandler : NSObject, FlutterStreamHandler{
             print(exception)
             
         default:
-            let json = ["failure" : ["error" : "Unhandled response case at ExpressPayCaptureResult.result"]]
+            let json = ["failure" : ["error" : "Unhandled response case at EdfaPayCaptureResult.result"]]
             eventSink?(json)
         }
     }
@@ -92,13 +92,13 @@ class CaptureEventHandler : NSObject, FlutterStreamHandler{
 }
 
 
-extension CaptureEventHandler : ExpressPayAdapterDelegate{
+extension CaptureEventHandler : EdfaPgAdapterDelegate{
     
-    func willSendRequest(_ request: ExpressPayDataRequest) {
+    func willSendRequest(_ request: EdfaPgDataRequest) {
         
     }
     
-    func didReceiveResponse(_ reponse: ExpressPayDataResponse?) {
+    func didReceiveResponse(_ reponse: EdfaPgDataResponse?) {
         if let data = reponse?.data,
            let dict = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed){
             eventSink?(["responseJSON" : dict])

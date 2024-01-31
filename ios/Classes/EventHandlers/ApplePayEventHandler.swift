@@ -1,6 +1,6 @@
 //
 //  SaleEventHandler.swift
-//  expresspay_sdk
+//  edfapay_sdk
 //
 //  Created by Zohaib Kambrani on 03/03/2023.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import Flutter
 import UIKit
-import ExpressPaySDK
+import EdfaPgSdk
 import PassKit
 
 
@@ -16,8 +16,8 @@ class ApplePayEventHandler : NSObject, FlutterStreamHandler{
     
     var eventSink:FlutterEventSink? = nil
     
-    private lazy var saleAdapter: ExpressPaySaleAdapter = {
-        let adapter = ExpressPayAdapterFactory().createSale()
+    private lazy var saleAdapter: EdfaPgSaleAdapter = {
+        let adapter = EdfaPgAdapterFactory().createSale()
         adapter.delegate = self
         return adapter
     }()
@@ -27,15 +27,15 @@ class ApplePayEventHandler : NSObject, FlutterStreamHandler{
         eventSink = events
         
         if let params = arguments as? [String:Any],
-           let order = params["ExpresspaySaleOrder"] as? [String : Any?],
-           let payer =  params["ExpresspayPayer"] as? [String : Any?],
+           let order = params["EdfapaySaleOrder"] as? [String : Any?],
+           let payer =  params["EdfapayPayer"] as? [String : Any?],
            let applePayMerchantId = params["applePayMerchantId"] as? String{
             
-            let order = ExpressPaySaleOrder.from(dictionary: order)
-            let payer = ExpressPayPayer.from(dictionary: payer)
+            let order = EdfaPgSaleOrder.from(dictionary: order)
+            let payer = EdfaPgPayer.from(dictionary: payer)
             
             // The precise way to present by sdk it self
-            ExpressApplePay()
+            EdfaApplePay()
                 .set(order: order)
                 .set(payer: payer)
                 .set(applePayMerchantID: applePayMerchantId)
@@ -49,7 +49,7 @@ class ApplePayEventHandler : NSObject, FlutterStreamHandler{
                     self.eventSink?(["failure":response])
                     
                 }).on(transactionSuccess: { response in
-                    debugPrint(response)
+                    debugPrint(response ?? "")
                     self.eventSink?(["success":response])
                     
                 }).initialize(
@@ -92,13 +92,13 @@ class ApplePayEventHandler : NSObject, FlutterStreamHandler{
         self.eventSink?(data)
     }
     
-    private func handleSuccess(response: ExpressPayGetTransactionDetailsSuccess){
-        debugPrint("native.transactionSuccess.data ==> \(response.toJSON(root: "success"))")
-        eventSink?(response.toJSON(root: "success"))
-    }
+    private func handleSuccess(response: EdfaPgGetTransactionDetailsSuccess){
+        debugPrint("native.transactionSuccess.data ==> \(String(describing: response.toJSON(root: "success")))")
+         eventSink?(response.toJSON(root: "success"))
+     }
     
     private func handleFailure(error:Any){
-        if let e = error as? ExpressPayError{
+        if let e = error as? EdfaPgError{
             eventSink?(["error" : e.json()])
         }else if let e = error as? Encodable{
             eventSink?(e.toJSON(root: "failure"))
@@ -115,13 +115,13 @@ class ApplePayEventHandler : NSObject, FlutterStreamHandler{
     
 }
 
-extension ApplePayEventHandler : ExpressPayAdapterDelegate{
+extension ApplePayEventHandler : EdfaPgAdapterDelegate{
     
-    func willSendRequest(_ request: ExpressPayDataRequest) {
+    func willSendRequest(_ request: EdfaPgDataRequest) {
         
     }
     
-    func didReceiveResponse(_ reponse: ExpressPayDataResponse?) {
+    func didReceiveResponse(_ reponse: EdfaPgDataResponse?) {
         
     }
     

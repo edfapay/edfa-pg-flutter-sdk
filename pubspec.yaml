@@ -55,7 +55,7 @@ flutter:
         package: com.edfapg.flutter.sdk
         pluginClass: EdfaPgSdkPlugin
       ios:
-        pluginClass: ExpresspaySdkPlugin
+        pluginClass: EdfaPaySdk
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:

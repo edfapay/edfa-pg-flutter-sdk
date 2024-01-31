@@ -1,6 +1,6 @@
 //
 //  SaleEventHandler.swift
-//  expresspay_sdk
+//  edfapay_sdk
 //
 //  Created by Zohaib Kambrani on 03/03/2023.
 //
@@ -8,15 +8,15 @@
 import Foundation
 import Flutter
 import UIKit
-import ExpressPaySDK
+import EdfaPgSdk
 
 
 class RecurringSaleEventHandler : NSObject, FlutterStreamHandler{
     
     var eventSink:FlutterEventSink? = nil
     
-    private lazy var recurringAdapter: ExpressPayRecurringSaleAdapter = {
-        let adapter = ExpressPayAdapterFactory().createRecurringSale()
+    private lazy var recurringAdapter: EdfaPgRecurringSaleAdapter = {
+        let adapter = EdfaPgAdapterFactory().createRecurringSale()
         adapter.delegate = self
         return adapter
     }()
@@ -28,13 +28,13 @@ class RecurringSaleEventHandler : NSObject, FlutterStreamHandler{
            let auth = params["auth"] as? Bool,
            let payerEmail = params["payerEmail"] as? String,
            let cardNumber = params["cardNumber"] as? String,
-           let order = params["ExpresspayOrder"] as? [String : Any?],
-           let recurringOptions =  params["ExpresspayRecurringOptions"] as? [String : Any?]{
+           let order = params["EdfapayOrder"] as? [String : Any?],
+           let recurringOptions =  params["EdfapayRecurringOptions"] as? [String : Any?]{
                  
             recurringAdapter.delegate = self
             recurringAdapter.execute(
-                order: ExpressPayOrder.from_(dictionary: order),
-                options: ExpressPayRecurringOptions.from(dictionary: recurringOptions),
+                order: EdfaPgOrder.from_(dictionary: order),
+                options: EdfaPgRecurringOptions.from(dictionary: recurringOptions),
                 payerEmail: payerEmail,
                 cardNumber: cardNumber,
                 auth: auth,
@@ -50,7 +50,7 @@ class RecurringSaleEventHandler : NSObject, FlutterStreamHandler{
         return nil
     }
     
-    private func handleResponse(response: ExpressPayResponse<ExpressPaySaleResult>){
+    private func handleResponse(response: EdfaPgResponse<EdfaPgSaleResult>){
         
         switch response {
         case .result(let result):
@@ -77,7 +77,7 @@ class RecurringSaleEventHandler : NSObject, FlutterStreamHandler{
                 eventSink?(json)
 
             default: break
-                let json = ["failure" : ["error" : "Unhandled response case at ExpressPaySaleResult.result"]]
+                let json = ["failure" : ["error" : "Unhandled response case at EdfaPaySaleResult.result"]]
                 eventSink?(json)
                 
             }
@@ -98,7 +98,7 @@ class RecurringSaleEventHandler : NSObject, FlutterStreamHandler{
             print(exception)
             
         default:
-            let json = ["failure" : ["error" : "Unhandled response case at ExpressPayResponse.result"]]
+            let json = ["failure" : ["error" : "Unhandled response case at EdfaPayResponse.result"]]
             eventSink?(json)
         }
     }
@@ -106,13 +106,13 @@ class RecurringSaleEventHandler : NSObject, FlutterStreamHandler{
 }
 
 
-extension RecurringSaleEventHandler : ExpressPayAdapterDelegate{
+extension RecurringSaleEventHandler : EdfaPgAdapterDelegate{
     
-    func willSendRequest(_ request: ExpressPayDataRequest) {
+    func willSendRequest(_ request: EdfaPgDataRequest) {
         
     }
     
-    func didReceiveResponse(_ reponse: ExpressPayDataResponse?) {
+    func didReceiveResponse(_ reponse: EdfaPgDataResponse?) {
         if let data = reponse?.data,
            let dict = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed){
             eventSink?(["responseJSON" : dict])

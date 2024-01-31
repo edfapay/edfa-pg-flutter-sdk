@@ -1,6 +1,6 @@
 //
 //  SaleEventHandler.swift
-//  expresspay_sdk
+//  edfapay_sdk
 //
 //  Created by Zohaib Kambrani on 03/03/2023.
 //
@@ -8,14 +8,14 @@
 import Foundation
 import Flutter
 import UIKit
-import ExpressPaySDK
+import EdfaPgSdk
 
 
 class CreditVoidEventHandler : NSObject, FlutterStreamHandler{
     var eventSink:FlutterEventSink? = nil
     
-    private lazy var adapter: ExpressPayCreditvoidAdapter = {
-        let adapter = ExpressPayAdapterFactory().createCreditvoid()
+    private lazy var adapter: EdfaPgCreditvoidAdapter = {
+        let adapter = EdfaPgAdapterFactory().createCreditvoid()
         adapter.delegate = self
         return adapter
     }()
@@ -48,7 +48,7 @@ class CreditVoidEventHandler : NSObject, FlutterStreamHandler{
         return nil
     }
     
-    private func handleResponse(response: ExpressPayResponse<ExpressPayCreditvoidResult>){
+    private func handleResponse(response: EdfaPgResponse<EdfaPgCreditvoidResult>){
         
         switch response {
         case .result(let result):
@@ -59,7 +59,7 @@ class CreditVoidEventHandler : NSObject, FlutterStreamHandler{
                 eventSink?(json)
 
             default: break
-                let json = ["failure" : ["error" : "Unhandled response case at ExpressPaySaleResult.result"]]
+                let json = ["failure" : ["error" : "Unhandled response case at EdfaPaySaleResult.result"]]
                 eventSink?(json)
                 
             }
@@ -80,7 +80,7 @@ class CreditVoidEventHandler : NSObject, FlutterStreamHandler{
             print(exception)
             
         default:
-            let json = ["failure" : ["error" : "Unhandled response case at ExpressPayCreditvoidResult.result"]]
+            let json = ["failure" : ["error" : "Unhandled response case at EdfaPayCreditvoidResult.result"]]
             eventSink?(json)
         }
     }
@@ -88,13 +88,13 @@ class CreditVoidEventHandler : NSObject, FlutterStreamHandler{
 }
 
 
-extension CreditVoidEventHandler : ExpressPayAdapterDelegate{
+extension CreditVoidEventHandler : EdfaPgAdapterDelegate{
     
-    func willSendRequest(_ request: ExpressPayDataRequest) {
+    func willSendRequest(_ request: EdfaPgDataRequest) {
         
     }
     
-    func didReceiveResponse(_ reponse: ExpressPayDataResponse?) {
+    func didReceiveResponse(_ reponse: EdfaPgDataResponse?) {
         if let data = reponse?.data,
            let dict = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed){
             eventSink?(["responseJSON" : dict])

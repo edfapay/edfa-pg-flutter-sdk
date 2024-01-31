@@ -1,7 +1,7 @@
 package com.edfapg.flutter.sdk.eventhandlers
 
-import com.edfapg.sdk.core.EdfaPgSdk
 import com.edfapg.flutter.sdk.helper.toMap
+import com.edfapg.sdk.core.EdfaPgSdk
 import com.edfapg.sdk.model.response.base.error.EdfaPgError
 import com.edfapg.sdk.model.response.gettransactionstatus.EdfaPgGetTransactionStatusCallback
 import com.edfapg.sdk.model.response.gettransactionstatus.EdfaPgGetTransactionStatusResponse
@@ -10,8 +10,8 @@ import com.edfapg.sdk.model.response.gettransactionstatus.EdfaPgGetTransactionSt
 import io.flutter.plugin.common.EventChannel
 
 
-class GetTransactionStatusEventHandler: EventChannel.StreamHandler {
-    var sink:EventChannel.EventSink? = null
+class GetTransactionStatusEventHandler : EventChannel.StreamHandler {
+    var sink: EventChannel.EventSink? = null
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
         sink = events
@@ -23,7 +23,11 @@ class GetTransactionStatusEventHandler: EventChannel.StreamHandler {
                         (get("payerEmail") as? String)?.let { payerEmail ->
                             (get("cardNumber") as? String)?.let { cardNumber ->
 
-                                txnStatus(payerEmail = payerEmail, cardNumber = cardNumber, transactionId = txnId)
+                                txnStatus(
+                                    payerEmail = payerEmail,
+                                    cardNumber = cardNumber,
+                                    transactionId = txnId
+                                )
 
                                 "All params are valid"
                             } ?: "Missing 'cardNumber' parameter"
@@ -38,7 +42,7 @@ class GetTransactionStatusEventHandler: EventChannel.StreamHandler {
     override fun onCancel(arguments: Any?) {
     }
 
-    fun txnStatus(payerEmail:String, cardNumber:String, transactionId:String){
+    fun txnStatus(payerEmail: String, cardNumber: String, transactionId: String) {
         EdfaPgSdk.Adapter.GET_TRANSACTION_STATUS.execute(
             payerEmail = payerEmail,
             cardNumber = cardNumber,
@@ -56,7 +60,7 @@ class GetTransactionStatusEventHandler: EventChannel.StreamHandler {
                     }
                 }
 
-                override fun onError(error: EdfaPgError){
+                override fun onError(error: EdfaPgError) {
                     send(mapOf("error" to error.toMap()))
                 }
 
@@ -69,7 +73,7 @@ class GetTransactionStatusEventHandler: EventChannel.StreamHandler {
 
     }
 
-    private fun send(map:Map<*,*>){
+    private fun send(map: Map<*, *>) {
         sink?.success(map)
     }
 }
