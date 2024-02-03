@@ -24,14 +24,14 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
     
     public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
         eventSink = events
-        
+
         if let params = arguments as? [String:Any],
-           let order = params["EdfapgSaleOrder"] as? [String : Any?],
-           let payer =  params["EdfapgPayer"] as? [String : Any?]{
+           let order = params["EdfaPgSaleOrder"] as? [String : Any?],
+           let payer =  params["EdfaPgPayer"] as? [String : Any?]{
             
                 let order = EdfaPgSaleOrder.from(dictionary: order)
                 let payer = EdfaPgPayer.from(dictionary: payer)
-            
+    
             // The precise way to present by sdk it self
             var cardDetailVC:UIViewController?
             cardDetailVC = EdfaCardPay()

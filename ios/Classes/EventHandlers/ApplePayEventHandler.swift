@@ -27,10 +27,10 @@ class ApplePayEventHandler : NSObject, FlutterStreamHandler{
         eventSink = events
         
         if let params = arguments as? [String:Any],
-           let order = params["EdfapaySaleOrder"] as? [String : Any?],
-           let payer =  params["EdfapayPayer"] as? [String : Any?],
+           let order = params["EdfaPgSaleOrder"] as? [String : Any?],
+           let payer =  params["EdfaPgPayer"] as? [String : Any?],
            let applePayMerchantId = params["applePayMerchantId"] as? String{
-            
+             
             let order = EdfaPgSaleOrder.from(dictionary: order)
             let payer = EdfaPgPayer.from(dictionary: payer)
             

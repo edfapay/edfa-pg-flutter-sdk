@@ -27,9 +27,9 @@ class SaleEventHandler : NSObject, FlutterStreamHandler{
         
         if let params = arguments as? [String:Any],
            let auth = params["auth"] as? Bool,
-           let order = params["EfapaySaleOrder"] as? [String : Any?],
-           let card = params["EdfapayCard"] as? [String : Any?],
-           let payer =  params["EdfapayPayer"] as? [String : Any?]{
+           let order = params["EfaPgSaleOrder"] as? [String : Any?],
+           let card = params["EdfaPgCard"] as? [String : Any?],
+           let payer =  params["EdfaPgPayer"] as? [String : Any?]{
                  
             saleAdapter.delegate = self
             saleAdapter.execute(
