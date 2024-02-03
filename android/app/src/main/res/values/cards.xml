@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DefaultAmex">
+        <item name="cardFrontBackground">@drawable/background_amex</item>
+        <item name="cardBackBackground">@drawable/background_amex</item>
+        <item name="cardBackLogo">@drawable/logo_amex</item>
+        <item name="cardFrontLogo">@drawable/logo_amex</item>
+    </style>
+
+    <style name="DefaultDiners">
+        <item name="cardFrontBackground">@drawable/background_diners</item>
+        <item name="cardBackBackground">@drawable/background_diners</item>
+        <item name="cardBackLogo">@drawable/logo_diners</item>
+        <item name="cardFrontLogo">@drawable/logo_diners</item>
+    </style>
+
+    <style name="DefaultDiscover">
+        <item name="cardFrontBackground">@drawable/background_discover</item>
+        <item name="cardBackBackground">@drawable/background_discover</item>
+        <item name="cardBackLogo">@drawable/logo_discover</item>
+        <item name="cardFrontLogo">@drawable/logo_discover</item>
+    </style>
+
+    <style name="DefaultGeneric">
+        <item name="cardFrontBackground">@drawable/background_generic</item>
+        <item name="cardBackBackground">@drawable/background_generic</item>
+        <item name="cardBackLogo">@drawable/logo_generic</item>
+        <item name="cardFrontLogo">@drawable/logo_generic</item>
+    </style>
+
+    <style name="DefaultJcb">
+        <item name="cardFrontBackground">@drawable/background_jcb</item>
+        <item name="cardBackBackground">@drawable/background_jcb</item>
+        <item name="cardBackLogo">@drawable/logo_jcb</item>
+        <item name="cardFrontLogo">@drawable/logo_jcb</item>
+    </style>
+
+    <style name="DefaultMaestro">
+        <item name="cardFrontBackground">@drawable/background_maestro</item>
+        <item name="cardBackBackground">@drawable/background_maestro</item>
+        <item name="cardBackLogo">@drawable/logo_maestro</item>
+        <item name="cardFrontLogo">@drawable/logo_maestro</item>
+    </style>
+
+    <style name="DefaultMastercard">
+        <item name="cardFrontBackground">@drawable/background_mastercard</item>
+        <item name="cardBackBackground">@drawable/background_mastercard</item>
+        <item name="cardBackLogo">@drawable/logo_mastercard</item>
+        <item name="cardFrontLogo">@drawable/logo_mastercard</item>
+    </style>
+
+    <style name="DefaultUnionpay">
+        <item name="cardFrontBackground">@drawable/background_unionpay</item>
+        <item name="cardBackBackground">@drawable/background_unionpay</item>
+        <item name="cardBackLogo">@drawable/logo_unionpay</item>
+        <item name="cardFrontLogo">@drawable/logo_unionpay</item>
+    </style>
+
+    <style name="DefaultVisa">
+        <item name="cardFrontBackground">@drawable/background_visa</item>
+        <item name="cardBackBackground">@drawable/background_visa</item>
+        <item name="cardBackLogo">@drawable/logo_visa</item>
+        <item name="cardFrontLogo">@drawable/logo_visa</item>
+    </style>
+
+    <style name="DefaultMada">
+        <item name="cardFrontBackground">@drawable/background_mada</item>
+        <item name="cardBackBackground">@drawable/background_mada</item>
+        <item name="cardBackLogo">@drawable/logo_mada</item>
+        <item name="cardFrontLogo">@drawable/logo_mada</item>
+    </style>
+</resources>
