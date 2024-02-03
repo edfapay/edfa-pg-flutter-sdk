@@ -1,7 +1,7 @@
 name: edfapg_sdk
 description: ExpressPay Flutter plugin responsable for help to integerate ExpressPay payment system in to your apps in very precise way.
-version: 2.0.2
-#homepage: https://github.com/ExpresspaySa/expresspay-flutter-sdk
+version: 0.0.1
+homepage: https://github.com/edfapay/edfa-pg-flutter-sdk.git
 
 ####################################
 ## Changing the version of project
@@ -19,7 +19,7 @@ version: 2.0.2
 # dart fix --apply (Fix Lint Warnings)
 
 environment:
-  sdk: '>=2.19.2 <3.0.0'
+  sdk: '>=2.19.2 <4.0.0'
   flutter: ">=2.5.0"
 
 dependencies:
