@@ -1,5 +1,5 @@
 name: edfapg_sdk
-description: ExpressPay Flutter plugin responsable for help to integerate ExpressPay payment system in to your apps in very precise way.
+description: EdfaPay Flutter plugin responsible for help to integrate EdfaPay payment system in to your apps in very precise way.
 version: 0.0.2
 homepage: https://github.com/edfapay/edfa-pg-flutter-sdk.git
 
