@@ -1,12 +1,12 @@
 //
 //  Encodables.swift
-//  expresspay_sdk
+//  edfapay_sdk
 //
 //  Created by Zohaib Kambrani on 03/03/2023.
 //
 
 import Foundation
-import ExpressPaySDK
+import EdfaPgSdk
 
 extension Encodable{
     func toJSON(root:String? = nil) ->  [String: Any]?{
@@ -23,7 +23,7 @@ extension Encodable{
 }
 
 
-extension ExpressPayError{
+extension EdfaPgError{
     func json() -> [String: Any]?{
         if var j = toJSON(){
             j["error"] = j["exactErrors"] ?? []

@@ -1,14 +1,14 @@
 //
-//  ExpressPayFormatters.swift
-//  expresspay_sdk
+//  EdfaPayFormatters.swift
+//  edfapaysdk
 //
 //  Created by Zohaib Kambrani on 03/03/2023.
 //
 
 import Foundation
-import ExpressPaySDK
+import EdfaPgSdk
 
-final class ExpressPayDateFormatter {
+final class EdfaPayDateFormatter {
 
     private let birthdateFormat = DateFormatter()
 

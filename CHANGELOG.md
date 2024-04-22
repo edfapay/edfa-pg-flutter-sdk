@@ -1,3 +1,4 @@
-## 1.0.9
+## 0.0.2
 
 Enhancements
+- Updated Readme

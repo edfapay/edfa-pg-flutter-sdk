@@ -1,6 +1,6 @@
 //
-//  ExpressPaySDKEventChannels.swift
-//  expresspay_sdk
+//  EdfaPaySdkEventChannels.swift
+//  EdfaPaySdk
 //
 //  Created by Zohaib Kambrani on 02/03/2023.
 //
@@ -8,11 +8,11 @@
 import Foundation
 import Flutter
 import UIKit
-import ExpressPaySDK
+import EdfaPgSdk
 
 
-public class ExpresspaySdkMethodChannels: NSObject{
-    var expressPaySdk:FlutterMethodChannel? = nil;
+public class EdfapaySdkMethodChannels: NSObject{
+    var edfaPaySdk:FlutterMethodChannel? = nil;
 
     final let methodGetPlatformVersion = "getPlatformVersion";
     final let methodConfig = "config";
@@ -21,7 +21,7 @@ public class ExpresspaySdkMethodChannels: NSObject{
         
         let messenger = flutterViewController.binaryMessenger
         
-        expressPaySdk = FlutterMethodChannel(name: "com.expresspay.sdk", binaryMessenger: messenger)
+        edfaPaySdk = FlutterMethodChannel(name: "com.edfapg.flutter.sdk", binaryMessenger: messenger)
     }
     
 }

@@ -1,6 +1,6 @@
 //
 //  SaleEventHandler.swift
-//  expresspay_sdk
+//  edfapay_sdk
 //
 //  Created by Zohaib Kambrani on 03/03/2023.
 //
@@ -8,15 +8,15 @@
 import Foundation
 import Flutter
 import UIKit
-import ExpressPaySDK
+import EdfaPgSdk
 
 
 class SaleEventHandler : NSObject, FlutterStreamHandler{
     
     var eventSink:FlutterEventSink? = nil
     
-    private lazy var saleAdapter: ExpressPaySaleAdapter = {
-        let adapter = ExpressPayAdapterFactory().createSale()
+    private lazy var saleAdapter: EdfaPgSaleAdapter = {
+        let adapter = EdfaPgAdapterFactory().createSale()
         adapter.delegate = self
         return adapter
     }()
@@ -27,15 +27,15 @@ class SaleEventHandler : NSObject, FlutterStreamHandler{
         
         if let params = arguments as? [String:Any],
            let auth = params["auth"] as? Bool,
-           let order = params["ExpresspaySaleOrder"] as? [String : Any?],
-           let card = params["ExpresspayCard"] as? [String : Any?],
-           let payer =  params["ExpresspayPayer"] as? [String : Any?]{
+           let order = params["EfaPgSaleOrder"] as? [String : Any?],
+           let card = params["EdfaPgCard"] as? [String : Any?],
+           let payer =  params["EdfaPgPayer"] as? [String : Any?]{
                  
             saleAdapter.delegate = self
             saleAdapter.execute(
-                order: ExpressPaySaleOrder.from(dictionary: order),
-                card: ExpressPayCard.from(dictionary: card),
-                payer: ExpressPayPayer.from(dictionary: payer),
+                order: EdfaPgSaleOrder.from(dictionary: order),
+                card: EdfaPgCard.from(dictionary: card),
+                payer: EdfaPgPayer.from(dictionary: payer),
                 termUrl3ds: "https://expresspay.sa",
                 options: nil,
                 auth: auth,
@@ -50,7 +50,7 @@ class SaleEventHandler : NSObject, FlutterStreamHandler{
         return nil
     }
     
-    private func handleResponse(response: ExpressPayResponse<ExpressPaySaleResult>){
+    private func handleResponse(response: EdfaPgResponse<EdfaPgSaleResult>){
         
         switch response {
         case .result(let result):
@@ -77,7 +77,7 @@ class SaleEventHandler : NSObject, FlutterStreamHandler{
                 eventSink?(json)
 
             default: break
-                let json = ["failure" : ["error" : "Unhandled response case at ExpressPaySaleResult.result"]]
+                let json = ["failure" : ["error" : "Unhandled response case at EdfaPaySaleResult.result"]]
                 eventSink?(json)
                 
             }
@@ -98,20 +98,20 @@ class SaleEventHandler : NSObject, FlutterStreamHandler{
             print(exception)
             
         default:
-            let json = ["failure" : ["error" : "Unhandled response case at ExpressPayResponse.result"]]
+            let json = ["failure" : ["error" : "Unhandled response case at EdfaPayResponse.result"]]
             eventSink?(json)
         }
     }
     
 }
 
-extension SaleEventHandler : ExpressPayAdapterDelegate{
+extension SaleEventHandler : EdfaPgAdapterDelegate{
     
-    func willSendRequest(_ request: ExpressPayDataRequest) {
+    func willSendRequest(_ request: EdfaPgDataRequest) {
         
     }
     
-    func didReceiveResponse(_ reponse: ExpressPayDataResponse?) {
+    func didReceiveResponse(_ reponse: EdfaPgDataResponse?) {
         if let data = reponse?.data,
            let dict = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed){
             eventSink?(["responseJSON" : dict])

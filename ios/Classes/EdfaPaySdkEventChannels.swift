@@ -1,6 +1,6 @@
 //
-//  ExpressPaySDKEventChannels.swift
-//  expresspay_sdk
+//  EdfaPaySdkEventChannels.swift
+//  edfapay_sdk
 //
 //  Created by Zohaib Kambrani on 02/03/2023.
 //
@@ -11,7 +11,7 @@ import UIKit
 
 
 
-public class ExpressPaySDKEventChannels: NSObject{
+public class EdfaPaySdkEventChannels: NSObject{
     
     var cardpay:FlutterEventChannel? = nil;
     var applepay:FlutterEventChannel? = nil;
@@ -28,17 +28,17 @@ public class ExpressPaySDKEventChannels: NSObject{
     public func initiate(with flutterViewController: FlutterViewController) {
         
         let messenger = flutterViewController.binaryMessenger
+
+        cardpay = FlutterEventChannel(name: "com.edfapg.flutter.sdk.cardpay", binaryMessenger: messenger)
+        applepay = FlutterEventChannel(name: "com.edfapg.flutter.sdk.applepay", binaryMessenger: messenger)
         
-        cardpay = FlutterEventChannel(name: "com.expresspay.sdk.cardpay", binaryMessenger: messenger)
-        applepay = FlutterEventChannel(name: "com.expresspay.sdk.applepay", binaryMessenger: messenger)
-        
-        sale = FlutterEventChannel(name: "com.expresspay.sdk.sale", binaryMessenger: messenger)
-        recurringSale = FlutterEventChannel(name: "com.expresspay.sdk.recurringsale", binaryMessenger: messenger)
-        capture = FlutterEventChannel(name: "com.expresspay.sdk.capture", binaryMessenger: messenger)
-        creditVoid = FlutterEventChannel(name: "com.expresspay.sdk.creditvoid", binaryMessenger: messenger)
-        transactionStatus = FlutterEventChannel(name: "com.expresspay.sdk.transactionstatus", binaryMessenger: messenger)
-        transactionDetail = FlutterEventChannel(name: "com.expresspay.sdk.transactiondetail", binaryMessenger: messenger)
-        transactionLogs = FlutterEventChannel(name: "com.expresspay.sdk.transactionlogs", binaryMessenger: messenger)
+        sale = FlutterEventChannel(name: "com.edfapg.flutter.sdk.sale", binaryMessenger: messenger)
+        recurringSale = FlutterEventChannel(name: "com.edfapg.flutter.sdk.recurringsale", binaryMessenger: messenger)
+        capture = FlutterEventChannel(name: "com.edfapg.flutter.sdk.capture", binaryMessenger: messenger)
+        creditVoid = FlutterEventChannel(name: "com.edfapg.flutter.sdk.creditvoid", binaryMessenger: messenger)
+        transactionStatus = FlutterEventChannel(name: "com.edfapg.flutter.sdk.transactionstatus", binaryMessenger: messenger)
+        transactionDetail = FlutterEventChannel(name: "com.edfapg.flutter.sdk.transactiondetail", binaryMessenger: messenger)
+        transactionLogs = FlutterEventChannel(name: "com.edfapg.flutter.sdk.transactionlogs", binaryMessenger: messenger)
         
         
         

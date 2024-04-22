@@ -1,12 +1,12 @@
 import Flutter
 import UIKit
-import ExpressPaySDK
+import EdfaPgSdk
 import PassKit
 
-fileprivate let events:ExpressPaySDKEventChannels = ExpressPaySDKEventChannels()
-fileprivate let methods:ExpresspaySdkMethodChannels = ExpresspaySdkMethodChannels()
+fileprivate let events:EdfaPaySdkEventChannels = EdfaPaySdkEventChannels()
+fileprivate let methods:EdfapaySdkMethodChannels = EdfapaySdkMethodChannels()
 
-public class ExpresspaySdkPlugin: NSObject, FlutterPlugin, PKPaymentAuthorizationViewControllerDelegate{
+public class EdfaPaySdkPlugin: NSObject, FlutterPlugin, PKPaymentAuthorizationViewControllerDelegate{
     public func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         
     }
@@ -19,7 +19,7 @@ public class ExpresspaySdkPlugin: NSObject, FlutterPlugin, PKPaymentAuthorizatio
             methods.initiate(with: flutterViewController)
         }
         
-        registrar.addMethodCallDelegate(ExpresspaySdkPlugin(), channel: methods.expressPaySdk!)
+        registrar.addMethodCallDelegate(EdfaPaySdkPlugin(), channel: methods.edfaPaySdk!)
         
     }
     
@@ -47,8 +47,7 @@ public class ExpresspaySdkPlugin: NSObject, FlutterPlugin, PKPaymentAuthorizatio
 }
 
 
-extension ExpresspaySdkPlugin{
-    
+extension EdfaPaySdkPlugin{
     private func getPlatformVersion(_ call: FlutterMethodCall, result: @escaping FlutterResult){
       result("iOS " + UIDevice.current.systemVersion)
     }
@@ -57,23 +56,22 @@ extension ExpresspaySdkPlugin{
 
 
 
-extension ExpresspaySdkPlugin{
-    
+extension EdfaPaySdkPlugin{
     private func config(_ call: FlutterMethodCall, result: @escaping FlutterResult){
         if let params = call.arguments as? [Any],
            let key = params[0] as? String,
            let pass = params[1] as? String,
            let enableDebug = params[2] as? Bool{
             
-            let credentials = ExpressPayCredential(
+            let credentials = EdfaPgCredential(
                 clientKey: key, clientPass: pass,
                 paymentUrl: "https://api.expresspay.sa/post"
             )
             
             if enableDebug{
-                ExpressPaySDK.enableLogs()
+                EdfaPgSdk.enableLogs()
             }
-            ExpressPaySDK.config(credentials)
+            EdfaPgSdk.config(credentials)
         }
     }
     
