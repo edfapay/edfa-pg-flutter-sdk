@@ -15,7 +15,7 @@ EdfaPgSdk Flutter plugin was developed and designed with one purpose: to help th
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'EdfaPgSdk', '~> 0.0.2'
+  s.dependency 'EdfaPgSdk', '~> 1.0.1'
   s.platform = :ios, '11.0'
 
   # Flutter.framework does not contain a i386 slice.

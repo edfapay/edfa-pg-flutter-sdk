@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="app_name">Edfa Payment Gateway SDK</string>
-    <string name="pay">Pay</string>
-    <string name="title_activity_edfa_card_pay">EdfaCardPayActivity</string>
-    <string name="title_activity_edfa_card_redirect">EdfaCardPayActivity</string>
-</resources>

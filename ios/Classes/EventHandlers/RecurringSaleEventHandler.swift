@@ -28,8 +28,8 @@ class RecurringSaleEventHandler : NSObject, FlutterStreamHandler{
            let auth = params["auth"] as? Bool,
            let payerEmail = params["payerEmail"] as? String,
            let cardNumber = params["cardNumber"] as? String,
-           let order = params["EdfapayOrder"] as? [String : Any?],
-           let recurringOptions =  params["EdfapayRecurringOptions"] as? [String : Any?]{
+           let order = params["EdfaPgOrder"] as? [String : Any?],
+           let recurringOptions =  params["EdfaPgRecurringOptions"] as? [String : Any?]{
                  
             recurringAdapter.delegate = self
             recurringAdapter.execute(
