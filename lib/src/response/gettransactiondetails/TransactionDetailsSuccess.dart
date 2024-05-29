@@ -10,6 +10,7 @@ class EdfaPgTransactionDetailsSuccess extends IOrderEdfaPgResult{
   String? mail;
   String? ip;
   String? card;
+
   List<EdfaPgTransaction> transactions = [];
 
   EdfaPgTransactionDetailsSuccess.fromJson(dynamic json) : super.fromJson(json) {

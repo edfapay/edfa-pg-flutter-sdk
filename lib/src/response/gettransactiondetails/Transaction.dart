@@ -6,7 +6,7 @@ class EdfaPgTransaction {
   String? date;
   EdfaPgTransactionType? type;
   EdfaPgTransactionStatus? status;
-  double? amount;
+  num? amount;
   
   EdfaPgTransaction({
       this.date, 
@@ -18,7 +18,10 @@ class EdfaPgTransaction {
     date = json['date'];
     type = EdfaPgTransactionType.of(json['type'].toString());
     status = EdfaPgTransactionStatus.of(json['status'].toString());
-    amount = json['amount'];
+    final am = json['amount'];
+
+    if(am is num)
+      amount = am.toDouble();
   }
 
   Map<String?, dynamic> toJson() {

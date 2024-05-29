@@ -64,11 +64,10 @@ dependencies:
 ## Initialize SDK
 
 ```dart
-EdfaPgSdk.instance.config
-(
-key: MERCHANT_CLIENT_KEY, // Your Secret Merchant Key
-password: MERCHANT_CLIENT_PASSWORD, // Your Secret Merchant Password
-enableDebug: true
+EdfaPgSdk.instance.config(
+  key: MERCHANT_CLIENT_KEY, // Your Secret Merchant Key
+  password: MERCHANT_CLIENT_PASSWORD, // Your Secret Merchant Password
+  enableDebug: true
 );
 ```
 

@@ -10,6 +10,7 @@ import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
 
 private val events = EdfaPgSDKEventChannels()
 private val methods = EdfaPgSdkMethodChannels()
+val PAYMENT_URL = "https://api.edfapay.com/payment/post"
 var ENABLE_DEBUG = false
 
 class EdfaPgSdkPlugin: FlutterPlugin, ActivityAware {

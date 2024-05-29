@@ -6,7 +6,8 @@ import PassKit
 fileprivate let events:EdfaPaySdkEventChannels = EdfaPaySdkEventChannels()
 fileprivate let methods:EdfapaySdkMethodChannels = EdfapaySdkMethodChannels()
 
-public class EdfaPaySdkPlugin: NSObject, FlutterPlugin, PKPaymentAuthorizationViewControllerDelegate{
+fileprivate let PAYMENT_URL = "https://api.edfapay.com/payment/post"
+public class EdfaPgSdkPlugin: NSObject, FlutterPlugin, PKPaymentAuthorizationViewControllerDelegate{
     public func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         
     }
@@ -19,7 +20,7 @@ public class EdfaPaySdkPlugin: NSObject, FlutterPlugin, PKPaymentAuthorizationVi
             methods.initiate(with: flutterViewController)
         }
         
-        registrar.addMethodCallDelegate(EdfaPaySdkPlugin(), channel: methods.edfaPaySdk!)
+        registrar.addMethodCallDelegate(EdfaPgSdkPlugin(), channel: methods.edfaPaySdk!)
         
     }
     
@@ -47,7 +48,7 @@ public class EdfaPaySdkPlugin: NSObject, FlutterPlugin, PKPaymentAuthorizationVi
 }
 
 
-extension EdfaPaySdkPlugin{
+extension EdfaPgSdkPlugin{
     private func getPlatformVersion(_ call: FlutterMethodCall, result: @escaping FlutterResult){
       result("iOS " + UIDevice.current.systemVersion)
     }
@@ -56,7 +57,7 @@ extension EdfaPaySdkPlugin{
 
 
 
-extension EdfaPaySdkPlugin{
+extension EdfaPgSdkPlugin{
     private func config(_ call: FlutterMethodCall, result: @escaping FlutterResult){
         if let params = call.arguments as? [Any],
            let key = params[0] as? String,
@@ -65,7 +66,7 @@ extension EdfaPaySdkPlugin{
             
             let credentials = EdfaPgCredential(
                 clientKey: key, clientPass: pass,
-                paymentUrl: "https://api.expresspay.sa/post"
+                paymentUrl: PAYMENT_URL
             )
             
             if enableDebug{

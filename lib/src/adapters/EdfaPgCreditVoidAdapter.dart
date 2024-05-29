@@ -15,7 +15,7 @@ class EdfaPgCreditVoidAdapter extends BaseAdapter{
     required String transactionId,
     required String payerEmail,
     required String cardNumber,
-    required double? amount,
+    required num? amount,
     required CreditVoidResponseCallback? onResponse,
     required Function(dynamic)? onFailure,
     required Function(Map)? onResponseJSON,
