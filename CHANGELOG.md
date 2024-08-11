@@ -21,3 +21,6 @@ Change payment url
 
 ## 0.0.9
 Change android native deps
+
+## 0.0.9
+Exception handling on error

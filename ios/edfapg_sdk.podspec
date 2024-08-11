@@ -15,7 +15,7 @@ EdfaPgSdk Flutter plugin was developed and designed with one purpose: to help th
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'EdfaPgSdk', '~> 1.0.4'
+  s.dependency 'EdfaPgSdk', '~> 1.0.6'
 #   s.dependency 'EdfaPgSdk', :git => 'https://github.com/edfapay/edfa-pg-ios-sdk-pod.git', :branch => 'production'
   s.platform = :ios, '11.0'
 

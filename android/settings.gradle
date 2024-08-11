@@ -6,4 +6,3 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = 'edfapg_sdk'
-//include ':edfa-pg-sdk'

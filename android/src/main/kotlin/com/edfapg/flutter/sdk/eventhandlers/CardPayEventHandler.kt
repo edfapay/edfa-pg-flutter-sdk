@@ -16,7 +16,6 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
         sink = events
-
         (arguments as? Map<*, *>)?.let {
             with(it) {
                 (get("EdfaPgSaleOrder") as? Map<*, *>)?.let { orderMap ->
