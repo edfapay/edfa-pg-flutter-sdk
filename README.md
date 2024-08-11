@@ -61,6 +61,17 @@ dependencies:
   edfapg_sdk: any
 ```
 
+## Configuring the Proguard Rule
+
+If your project is obfuscated with proguard, please add the rule below to your project **proguard-rules.pro**
+
+```
+-keep class com.edfapg.sdk.** {
+  public protected private *;
+}
+```
+
+
 ## Initialize SDK
 
 ```dart
