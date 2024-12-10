@@ -30,7 +30,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 34
-
+    namespace 'com.edfapg.flutter.sdk'
 
     defaultConfig {
 //        applicationId "com.edfapg.flutter.sdk"
