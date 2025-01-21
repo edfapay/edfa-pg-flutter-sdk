@@ -68,8 +68,7 @@ export 'src/api/EdfaPgAction.dart';
 export 'src/api/EdfaPgStatus.dart';
 export 'src/api/EdfaPgResult.dart';
 
-
-
+export 'src/enum/DesignType.dart';
 
 class EdfaPgSdk {
   static final EdfaPgSdk _instance = EdfaPgSdk();

@@ -1,6 +1,7 @@
 package com.edfapg.flutter.sdk
 
 import android.content.Context
+import android.util.Log
 import com.edfapg.flutter.sdk.methodhandlers.ConfigMethodHandler
 import com.edfapg.flutter.sdk.methodhandlers.PlatformVersionMethodHandler
 import io.flutter.embedding.engine.plugins.FlutterPlugin
@@ -19,6 +20,7 @@ class EdfaPgSdkMethodChannels{
     public fun initiate(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding, context: Context) {
         this.context = context
         channel = MethodChannel(flutterPluginBinding.binaryMessenger,"com.edfapg.flutter.sdk")
+        Log.d("EdfaPgSdkPluginMethod", "initiate")
 
         channel?.setMethodCallHandler { call, result ->
             when (call.method) {
@@ -28,7 +30,6 @@ class EdfaPgSdkMethodChannels{
                     result.notImplemented()
                 }
             }
-
         }
 
     }

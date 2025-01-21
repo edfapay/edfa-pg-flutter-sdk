@@ -24,3 +24,6 @@ Change android native deps
 
 ## 0.0.9
 Exception handling on error
+
+## 1.0.0
+Added 3 new UI screens for card detail input

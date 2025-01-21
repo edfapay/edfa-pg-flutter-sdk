@@ -1,3 +1,7 @@
+//include(':edfa-pg-sdk')
+//project(':edfa-pg-sdk').projectDir = new File(settingsDir,"../../edfa-pg-android-sdk/edfa-pg-sdk")
+//print(new File(settingsDir,"../../edfa-pg-android-sdk/edfa-pg-sdk"))
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
@@ -6,3 +10,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = 'edfapg_sdk'
+

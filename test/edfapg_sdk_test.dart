@@ -10,11 +10,13 @@ class MockEdfaPgSdkPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+  
 
   @override
   Future<bool> config(String key, String password, bool enableDebug) {
     throw UnimplementedError();
   }
+
 }
 
 void main() {

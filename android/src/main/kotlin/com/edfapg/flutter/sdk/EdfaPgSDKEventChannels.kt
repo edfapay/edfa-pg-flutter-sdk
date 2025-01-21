@@ -1,6 +1,7 @@
 package com.edfapg.flutter.sdk
 
 import android.content.Context
+import android.util.Log
 import com.edfapg.flutter.sdk.eventhandlers.CaptureEventHandler
 import com.edfapg.flutter.sdk.eventhandlers.CardPayEventHandler
 import com.edfapg.flutter.sdk.eventhandlers.CreditVoidEventHandler
@@ -26,12 +27,12 @@ class EdfaPgSDKEventChannels {
     var transactionLogs: EventChannel? = null;
 
 
-    public fun initiate(
+    fun initiate(
         flutterPluginBinding: FlutterPlugin.FlutterPluginBinding,
         context: Context
     ) {
         val messenger = flutterPluginBinding.binaryMessenger
-
+        Log.d("EdfaPgSdkPluginEvent", "initiate")
         cardpay = EventChannel(messenger, "com.edfapg.flutter.sdk.cardpay")
         sale = EventChannel(messenger, "com.edfapg.flutter.sdk.sale")
         recurringSale = EventChannel(messenger, "com.edfapg.flutter.sdk.recurringsale")
