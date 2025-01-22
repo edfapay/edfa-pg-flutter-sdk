@@ -66,9 +66,9 @@ android {
     }
 
     dependencies {
-//        implementation 'com.github.edfapay:edfa-pg-android-sdk:latest-SNAPSHOT' // Latest Snapshot from JitPack
+        implementation 'com.github.edfapay:edfa-pg-android-sdk:2.0.0' // Latest Snapshot from JitPack
 //        implementation 'com.edfapg:sdk:1.0.5' // Local Repository
-        implementation project(path: ':edfa-pg-sdk') // Local Module
+//        implementation project(path: ':edfa-pg-sdk') // Local Module
         implementation 'com.google.code.gson:gson:2.9.0'
     }
 }

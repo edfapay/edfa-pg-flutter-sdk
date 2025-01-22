@@ -1,7 +1,9 @@
 package com.edfapg.flutter.sdk
 
 import android.content.Context
+import android.util.Log
 import com.edfapg.flutter.sdk.eventhandlers.CaptureEventHandler
+import com.edfapg.flutter.sdk.eventhandlers.CardDetailPayEventHandler
 import com.edfapg.flutter.sdk.eventhandlers.CardPayEventHandler
 import com.edfapg.flutter.sdk.eventhandlers.CreditVoidEventHandler
 import com.edfapg.flutter.sdk.eventhandlers.GetTransactionDetailsEventHandler
@@ -15,6 +17,7 @@ import io.flutter.plugin.common.EventChannel
 class EdfaPgSDKEventChannels {
 
     var cardpay: EventChannel? = null;
+    var cardDetailPay: EventChannel? = null;
     var applepay: EventChannel? = null;
 
     var sale: EventChannel? = null;
@@ -26,13 +29,14 @@ class EdfaPgSDKEventChannels {
     var transactionLogs: EventChannel? = null;
 
 
-    public fun initiate(
+    fun initiate(
         flutterPluginBinding: FlutterPlugin.FlutterPluginBinding,
         context: Context
     ) {
         val messenger = flutterPluginBinding.binaryMessenger
-
+        Log.d("EdfaPgSdkPluginEvent", "initiate")
         cardpay = EventChannel(messenger, "com.edfapg.flutter.sdk.cardpay")
+        cardDetailPay = EventChannel(messenger, "com.edfapg.flutter.sdk.cardDetailPay")
         sale = EventChannel(messenger, "com.edfapg.flutter.sdk.sale")
         recurringSale = EventChannel(messenger, "com.edfapg.flutter.sdk.recurringsale")
         capture = EventChannel(messenger, "com.edfapg.flutter.sdk.capture")
@@ -48,6 +52,7 @@ class EdfaPgSDKEventChannels {
         transactionStatus?.setStreamHandler(GetTransactionStatusEventHandler())
         transactionDetail?.setStreamHandler(GetTransactionDetailsEventHandler())
         cardpay?.setStreamHandler(CardPayEventHandler(context))
+        cardDetailPay?.setStreamHandler(CardDetailPayEventHandler(context))
 
     }
 }

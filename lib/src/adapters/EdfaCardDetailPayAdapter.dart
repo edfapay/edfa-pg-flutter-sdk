@@ -10,24 +10,24 @@ import 'package:edfapg_sdk/src/enum/DesignType.dart';
 import 'package:edfapg_sdk/src/request/EdfaPgPayer.dart';
 import 'package:edfapg_sdk/src/request/EdfaPgSaleOrder.dart';
 
-class EdfaCardPayAdapter extends BaseAdapter{
+class EdfaCardDetailPayAdapter extends BaseAdapter{
 
   execute({
     required EdfaPgSaleOrder order,
     required EdfaPgPayer payer,
+    required EdfaPgCard card,
     required CardPayResponseCallback? callback,
-    Function(dynamic)? onFailure,
-    EdfaPayDesignType? designType = EdfaPayDesignType.one,
     EdfaPayLanguage? locale = EdfaPayLanguage.en,
+    Function(dynamic)? onFailure,
   }) {
     final params = {
       order.runtimeType.toString(): order.toJson(),
       payer.runtimeType.toString(): payer.toJson(),
-      designType.runtimeType.toString(): designType?.name ?? EdfaPayDesignType.one.name,
+      card.runtimeType.toString(): card.toJson(),
       locale.runtimeType.toString(): locale?.name ?? EdfaPayLanguage.en.name
     };
 
-    startCardPay(params).listen((event) {
+    startPayWithCardDetail(params).listen((event) {
       Log(event);
       EdfaCardPayResult(event).triggerCallbacks(callback, onFailure: onFailure);
     });

@@ -11,7 +11,7 @@ import UIKit
 import EdfaPgSdk 
 
 
-class CardPayEventHandler : NSObject, FlutterStreamHandler{
+class CardDetailPayEventHandler : NSObject, FlutterStreamHandler{
     
     var eventSink:FlutterEventSink? = nil
     
@@ -27,32 +27,29 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
 
         if let params = arguments as? [String:Any],
            let order = params["EdfaPgSaleOrder"] as? [String : Any?],
-           let payer =  params["EdfaPgPayer"] as? [String : Any?]{
+           let payer =  params["EdfaPgPayer"] as? [String : Any?],
+           let card =  params["EdfaPgCard"] as? [String : Any?]{
             
             
             let order = EdfaPgSaleOrder.from(dictionary: order)
             let payer = EdfaPgPayer.from(dictionary: payer)
+            let card = EdfaPgCard.from(dictionary: card)
             
             
-            let designCode = (params["EdfaPayDesignType"] as? String) ?? "one"
             let languageCode = (params["EdfaPayLanguage"] as? String) ?? "en"
-
-            let designType = designTypeFrom(code: designCode)
             let language = languageFrom(code: languageCode)
             
     
             // The precise way to present by sdk it self
-            var cardDetailVC:UIViewController?
-            cardDetailVC = EdfaCardPay()
+            EdfaPayWithCardDetails(viewController: UIApplication.currentViewController()!)
                 .set(order: order)
                 .set(payer: payer)
-                .set(designType: designType)
+                .set(card: card)
                 .set(language: language)
                 .on(transactionFailure: { result, error in
                     debugPrint("native.transactionFailure.result ==> \(String(describing: result))")
                     debugPrint("native.transactionFailure.error ==> \(String(describing: error))")
                     
-                    cardDetailVC?.dismiss(animated: true)
                     self.handleFailure(error: error ?? "Error")
                     
                 })
@@ -60,16 +57,13 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
                     debugPrint("native.transactionSuccess.response ==> \(String(describing: res))")
                     debugPrint("native.transactionSuccess.data ==> \(String(describing: data))")
                     
-                    cardDetailVC?.dismiss(animated: true)
                     self.handleSuccess(response: data as! EdfaPgGetTransactionDetailsSuccess)
 
                 }).initialize(
-                    target: UIApplication.currentViewController()!,
                     onError: { err in
                         self.handleFailure(error: err)
 
-                    },
-                    onPresent: onPresent
+                    }
                 )
             
         }
@@ -92,12 +86,18 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
     
     private func handleFailure(error:Any){
         
+        
         if let e = error as? Array<String>{
             let error = [
                 "result" : "ERROR",
                 "error_code" : 100000,
                 "error_message" : "\(error)",
-                "errors" : [],
+                "errors" : e.map({ eMsg in
+                    return [
+                        "code" : 100000,
+                        "message" : eMsg
+                    ]
+                }),
             ] as [String : Any]
             eventSink?(["error":error])
             return
@@ -117,14 +117,17 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
             "result" : "ERROR",
             "error_code" : 100000,
             "error_message" : "\(error)",
-            "errors" : error,
+            "errors" : [
+                "code" : 100000,
+                "message" : "\(error)"
+            ],
         ] as [String : Any]
         eventSink?(["error":error])
     }
     
 }
 
-extension CardPayEventHandler : EdfaPgAdapterDelegate{
+extension CardDetailPayEventHandler : EdfaPgAdapterDelegate{
     
     func willSendRequest(_ request: EdfaPgDataRequest) {
         

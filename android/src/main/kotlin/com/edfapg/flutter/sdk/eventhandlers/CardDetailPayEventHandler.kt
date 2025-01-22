@@ -16,7 +16,7 @@ import com.google.gson.Gson
 import io.flutter.plugin.common.EventChannel
 import java.io.Serializable
 
-class CardPayEventHandler(private val context: Context): EventChannel.StreamHandler {
+class CardDetailPayEventHandler(private val context: Context): EventChannel.StreamHandler {
     var sink:EventChannel.EventSink? = null
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
@@ -25,16 +25,15 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
             with(it) {
                 (get("EdfaPgSaleOrder") as? Map<*, *>)?.let { orderMap ->
                     (get("EdfaPgPayer") as? Map<*, *>)?.let { payerMap ->
-                        val order = Gson().fromJson(Gson().toJson(orderMap), EdfaPgSaleOrder::class.java)
-                        val payer = Gson().fromJson(Gson().toJson(payerMap), EdfaPgPayer::class.java)
-                        val design = (get("EdfaPayDesignType") as? String)
-                        val locale = (get("EdfaPayLanguage") as? String)
-                        val dType = EdfaPayDesignType.values().firstOrNull { it.value == design} ?: EdfaPayDesignType.one
-                        val mLocale = EdfaPayLanguage.values().firstOrNull { it.value == locale} ?: EdfaPayLanguage.en
+                        (get("EdfaPgCard") as? Map<*, *>)?.let { cardMap ->
+                            val order = Gson().fromJson(Gson().toJson(orderMap), EdfaPgSaleOrder::class.java)
+                            val payer = Gson().fromJson(Gson().toJson(payerMap), EdfaPgPayer::class.java)
+                            val card = Gson().fromJson(Gson().toJson(cardMap), EdfaPgCard::class.java)
+                            val locale = get("EdfaPayLanguage") as? String
+                            val mLocale = EdfaPayLanguage.values().firstOrNull { it.value == locale} ?: EdfaPayLanguage.en
 
-                        payWithCard(order, payer, dType, mLocale)
-//                        payWithCardDetails(order, payer)
-
+                            payWithCardDetails(order, payer, card, mLocale)
+                        }
                     }
 
                 }
@@ -46,50 +45,22 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
 
     }
 
-
-    fun payWithCard(order:EdfaPgSaleOrder, payer:EdfaPgPayer, designType:EdfaPayDesignType, locale:EdfaPayLanguage){
-        EdfaCardPay()
-            .setOrder(order)
-            .setPayer(payer)
-            .onTransactionFailure { res, data ->
-                print("$res $data")
-                handleFailure(data!!)
-            }.onTransactionSuccess { res, data ->
-                print("$res $data")
-                handleSuccess(data as? EdfaPgGetTransactionDetailsSuccess)
-            }.initialize(
-                context = context,
-                onError = {
-                    handleFailure(it)
-                },
-                onPresent = {
-                    onPresent()
-                }
-            )
-
-    }
-
-
-    fun payWithCardDetails(order:EdfaPgSaleOrder, payer:EdfaPgPayer){
-
-        val card = EdfaPgCard("4458271329748293", 7, 2029, "331")
-
-
-
+    private fun payWithCardDetails(order:EdfaPgSaleOrder, payer:EdfaPgPayer, card:EdfaPgCard, language:EdfaPayLanguage){
         EdfaPayWithCardDetails(context = context)
             .setOrder(order)
             .setPayer(payer)
             .setCard(card)
             .onTransactionFailure { res, data ->
                 print("$res $data")
-                Toast.makeText(context, "Transaction Failure", Toast.LENGTH_LONG).show()
+                handleFailure(data!!)
+
             }.onTransactionSuccess { res, data ->
                 print("$res $data")
-                Toast.makeText(context, "Transaction Success", Toast.LENGTH_LONG).show()
-            }
-            .initialize(
+                handleSuccess(data as? EdfaPgGetTransactionDetailsSuccess)
+
+            }.initialize(
                 onError = {
-                    Toast.makeText(context, "onError $it", Toast.LENGTH_LONG).show()
+
                 },
                 onPresent = {
 
@@ -97,16 +68,6 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
             )
     }
 
-
-
-    private fun onPresent(){
-        print("onPresent :)")
-        sink?.success(
-            mapOf(
-                "onPresent" to ":)"
-            )
-        )
-    }
 
     private fun handleSuccess(response: EdfaPgGetTransactionDetailsSuccess?){
         print("native.transactionSuccess.data ==> ${response?.toMap()}")

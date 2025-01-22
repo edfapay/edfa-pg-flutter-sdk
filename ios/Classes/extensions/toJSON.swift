@@ -8,6 +8,7 @@
 import Foundation
 import EdfaPgSdk
 
+
 extension Encodable{
     func toJSON(root:String? = nil) ->  [String: Any]?{
         if let data = try? JSONEncoder().encode(self){
@@ -18,7 +19,13 @@ extension Encodable{
                 return json
             }
         }
-        return nil
+        
+        if let _root = root{
+            return [_root : self]
+        }
+        
+        
+        return ["error" : self]
     }
 }
 

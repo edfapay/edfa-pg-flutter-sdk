@@ -14,6 +14,7 @@ import UIKit
 public class EdfaPaySdkEventChannels: NSObject{
     
     var cardpay:FlutterEventChannel? = nil;
+    var cardDetailPay:FlutterEventChannel? = nil;
     var applepay:FlutterEventChannel? = nil;
     
     var sale:FlutterEventChannel? = nil;
@@ -30,6 +31,7 @@ public class EdfaPaySdkEventChannels: NSObject{
         let messenger = flutterViewController.binaryMessenger
 
         cardpay = FlutterEventChannel(name: "com.edfapg.flutter.sdk.cardpay", binaryMessenger: messenger)
+        cardDetailPay = FlutterEventChannel(name: "com.edfapg.flutter.sdk.cardDetailPay", binaryMessenger: messenger)
         applepay = FlutterEventChannel(name: "com.edfapg.flutter.sdk.applepay", binaryMessenger: messenger)
         
         sale = FlutterEventChannel(name: "com.edfapg.flutter.sdk.sale", binaryMessenger: messenger)
@@ -43,6 +45,7 @@ public class EdfaPaySdkEventChannels: NSObject{
         
         
         cardpay?.setStreamHandler(CardPayEventHandler())
+        cardDetailPay?.setStreamHandler(CardDetailPayEventHandler())
         applepay?.setStreamHandler(ApplePayEventHandler())
         
         sale?.setStreamHandler(SaleEventHandler())

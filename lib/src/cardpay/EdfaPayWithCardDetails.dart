@@ -6,70 +6,62 @@ import 'package:edfapg_sdk/src/request/EdfaPgSaleOrder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:edfapg_sdk/src/Helpers.dart';
 
-class EdfaCardPay {
+class EdfaPayWithCard {
+  EdfaPayWithCard(this._card);
+
   Function(EdfaPgTransactionDetailsSuccess response)? _onTransactionFailure;
   Function(EdfaPgTransactionDetailsSuccess response)? _onTransactionSuccess;
 
   Function(dynamic)? _onError;
-  Function(BuildContext)? _onPresent;
 
   EdfaPgSaleOrder? _order;
   EdfaPgPayer? _payer;
-  EdfaPayDesignType? _designType;
+  EdfaPgCard? _card;
   EdfaPayLanguage? _locale;
 
-  EdfaCardPay setOrder(EdfaPgSaleOrder order) {
+  EdfaPayWithCard setOrder(EdfaPgSaleOrder order) {
     _order = order;
     return this;
   }
 
-  EdfaCardPay setPayer(EdfaPgPayer payer) {
+  EdfaPayWithCard setPayer(EdfaPgPayer payer) {
     _payer = payer;
     return this;
   }
 
-  EdfaCardPay setDesignType(EdfaPayDesignType type) {
-    _designType = type;
-    return this;
-  }
-
-  EdfaCardPay setLanguage(EdfaPayLanguage locale) {
+  EdfaPayWithCard setLanguage(EdfaPayLanguage locale) {
     _locale = locale;
     return this;
   }
 
-  EdfaCardPay onTransactionFailure(
+  EdfaPayWithCard onTransactionFailure(
       Function(EdfaPgTransactionDetailsSuccess response) callback) {
     _onTransactionFailure = callback;
     return this;
   }
 
-  EdfaCardPay onTransactionSuccess(
+  EdfaPayWithCard onTransactionSuccess(
       Function(EdfaPgTransactionDetailsSuccess response) callback) {
     _onTransactionSuccess = callback;
     return this;
   }
 
-  EdfaCardPay onError(Function(dynamic response) callback) {
+  EdfaPayWithCard onError(Function(dynamic response) callback) {
     _onError = callback;
-    return this;
-  }
-
-  EdfaCardPay onPresent(Function(BuildContext context) callback) {
-    _onPresent = callback;
     return this;
   }
 
 
   initialize(BuildContext context) {
-    _payWithSdkCardUI(context);
+    _payWithCardDetail(context);
   }
 
-  _payWithSdkCardUI(BuildContext context) {
-    EdfaPgSdk.instance.ADAPTER.CARD_PAY.execute(
+  _payWithCardDetail(BuildContext context){
+
+    EdfaPgSdk.instance.ADAPTER.CARD_DETAIL_PAY.execute(
         order: _order!,
         payer: _payer!,
-        designType: _designType ?? EdfaPayDesignType.one,
+        card: _card!,
         locale: _locale ?? EdfaPayLanguage.en,
         callback: CardPayResponseCallback(
             success: (EdfaPgTransactionDetailsSuccess response) {
@@ -88,12 +80,6 @@ class EdfaCardPay {
 
         }
     );
-
-    Future.delayed(const Duration(milliseconds: 200)).then((value) {
-      if (_onPresent != null) {
-        _onPresent!(context);
-      }
-    });
   }
 
   Widget widget() {

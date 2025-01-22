@@ -61,6 +61,7 @@ export 'src/response/sale/SaleSuccess.dart';
 export 'src/response/sale/SaleResult.dart';
 
 export 'src/cardpay/EdfaCardPay.dart';
+export 'src/cardpay/EdfaPayWithCardDetails.dart';
 export 'src/applepay/EdfaApplePay.dart';
 
 
@@ -68,8 +69,7 @@ export 'src/api/EdfaPgAction.dart';
 export 'src/api/EdfaPgStatus.dart';
 export 'src/api/EdfaPgResult.dart';
 
-
-
+export 'src/enum/DesignType.dart';
 
 class EdfaPgSdk {
   static final EdfaPgSdk _instance = EdfaPgSdk();

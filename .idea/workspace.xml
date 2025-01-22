@@ -5,16 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7edbbd58-3e74-4381-8c7a-bb19e5d1a446" name="Changes" comment="updated readme">
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardDetailPayEventHandler.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ios/Classes/Helper.swift" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/adapters/EdfaCardDetailPayAdapter.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/cardpay/EdfaPayWithCardDetails.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/enum/DesignType.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/src/enum/EdfaLocale.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/EdfaPgSDKEventChannels.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/EdfaPgSDKEventChannels.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/EdfaPgSdkMethodChannels.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/EdfaPgSdkMethodChannels.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardPayEventHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardPayEventHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/EdfaPaySdkEventChannels.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/EdfaPaySdkEventChannels.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/EventHandlers/CardPayEventHandler.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/EventHandlers/CardPayEventHandler.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/extensions/toJSON.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/extensions/toJSON.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/edfapg_sdk.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/ios/edfapg_sdk.podspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/edfapg_sdk.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/edfapg_sdk.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/adapters/BaseAdapter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/adapters/BaseAdapter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/adapters/EdfaCardPayAdapter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/adapters/EdfaCardPayAdapter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/adapters/EdfaPgAdapters.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/adapters/EdfaPgAdapters.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/cardpay/EdfaCardPay.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/cardpay/EdfaCardPay.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/event_channels.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/event_channels.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
-=======
-      <change beforePath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/AndroidManifest.xml" afterDir="false" />
->>>>>>> 4ebcb5ab36a83189704285ab16db894f12d68f09
+      <change beforePath="$PROJECT_DIR$/test/edfapg_sdk_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/edfapg_sdk_test.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,12 +53,24 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KashifAhmad&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/edfapay/edfa-pg-flutter-sdk.git&quot;,
+    &quot;accountId&quot;: &quot;bc6fa42f-efd5-43d3-b9fd-453ab07bdf3f&quot;
+  }
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2bBNbdpDJ625QTneSbsbyBRaQKz" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -56,15 +89,22 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "devkashif",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Volumes/Data/Projects/Edfapay/Flutter/edfa-pg-flutter-sdk",
+    "last_opened_file_path": "/Volumes/Storage/Projects/Edfapay/Flutter/edfa-pg-flutter-sdk/lib/src/cardpay",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "dart.settings",
     "show.migrate.to.gradle.popup": "false"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/src/cardpay" />
+      <recent name="$PROJECT_DIR$/lib/src/adapters" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -142,5 +182,16 @@
     <MESSAGE value="components" />
     <MESSAGE value="updated readme" />
     <option name="LAST_COMMIT_MESSAGE" value="updated readme" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/src/adapters/EdfaCardPayAdapter.dart</url>
+          <line>21</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
