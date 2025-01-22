@@ -34,8 +34,8 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
             let payer = EdfaPgPayer.from(dictionary: payer)
             
             
-            let designCode = (params["DesignType"] as? String) ?? "one"
-            let languageCode = (params["EdfaLocale"] as? String) ?? "en"
+            let designCode = (params["EdfaPayDesignType"] as? String) ?? "one"
+            let languageCode = (params["EdfaPayLanguage"] as? String) ?? "en"
 
             let designType = designTypeFrom(code: designCode)
             let language = languageFrom(code: languageCode)
