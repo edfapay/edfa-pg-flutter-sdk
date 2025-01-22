@@ -29,14 +29,25 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
            let order = params["EdfaPgSaleOrder"] as? [String : Any?],
            let payer =  params["EdfaPgPayer"] as? [String : Any?]{
             
-                let order = EdfaPgSaleOrder.from(dictionary: order)
-                let payer = EdfaPgPayer.from(dictionary: payer)
+            
+            let order = EdfaPgSaleOrder.from(dictionary: order)
+            let payer = EdfaPgPayer.from(dictionary: payer)
+            
+            
+            let designCode = (params["DesignType"] as? String) ?? "one"
+            let languageCode = (params["EdfaLocale"] as? String) ?? "en"
+
+            let designType = designTypeFrom(code: designCode)
+            let language = languageFrom(code: languageCode)
+            
     
             // The precise way to present by sdk it self
             var cardDetailVC:UIViewController?
             cardDetailVC = EdfaCardPay()
                 .set(order: order)
                 .set(payer: payer)
+                .set(designType: designType)
+                .set(language: language)
                 .on(transactionFailure: { result, error in
                     debugPrint("native.transactionFailure.result ==> \(String(describing: result))")
                     debugPrint("native.transactionFailure.error ==> \(String(describing: error))")
@@ -80,11 +91,8 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
     }
     
     private func handleFailure(error:Any){
-        if let e = error as? EdfaPgError{
-            eventSink?(["error" : e.json()])
-        }else if let e = error as? Encodable{
-            eventSink?(e.toJSON(root: "failure"))
-        }else{
+        
+        if let e = error as? Array<String>{
             let error = [
                 "result" : "ERROR",
                 "error_code" : 100000,
@@ -92,7 +100,26 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
                 "errors" : [],
             ] as [String : Any]
             eventSink?(["error":error])
+            return
         }
+        
+        if let e = error as? EdfaPgError{
+            eventSink?(["error" : e.json()])
+            return
+        }
+        
+        if let e = error as? Encodable{
+            eventSink?(e.toJSON(root: "failure"))
+            return
+        }
+        
+        let error = [
+            "result" : "ERROR",
+            "error_code" : 100000,
+            "error_message" : "\(error)",
+            "errors" : error,
+        ] as [String : Any]
+        eventSink?(["error":error])
     }
     
 }

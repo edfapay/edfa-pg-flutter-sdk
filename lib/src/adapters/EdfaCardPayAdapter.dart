@@ -17,14 +17,14 @@ class EdfaCardPayAdapter extends BaseAdapter{
     required EdfaPgPayer payer,
     required CardPayResponseCallback? callback,
     Function(dynamic)? onFailure,
-    DesignType? designType = DesignType.PAYMENT_DESIGN_1,
-    EdfaLocale? locale = EdfaLocale.EN,
+    EdfaPayDesignType? designType = EdfaPayDesignType.one,
+    EdfaPayLanguage? locale = EdfaPayLanguage.en,
   }) {
     final params = {
       order.runtimeType.toString(): order.toJson(),
       payer.runtimeType.toString(): payer.toJson(),
-      designType.runtimeType.toString(): designType?.value ?? DesignType.PAYMENT_DESIGN_1.value,
-      locale.runtimeType.toString(): locale?.value ?? EdfaLocale.values
+      designType.runtimeType.toString(): designType?.name ?? EdfaPayDesignType.one.name,
+      locale.runtimeType.toString(): locale?.name ?? EdfaPayLanguage.en.name
     };
 
     startCardPay(params).listen((event) {

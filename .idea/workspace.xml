@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7edbbd58-3e74-4381-8c7a-bb19e5d1a446" name="Changes" comment="updated readme" />
+    <list default="true" id="7edbbd58-3e74-4381-8c7a-bb19e5d1a446" name="Changes" comment="updated readme">
+      <change afterPath="$PROJECT_DIR$/ios/Classes/Helper.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/EventHandlers/CardPayEventHandler.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/EventHandlers/CardPayEventHandler.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/extensions/toJSON.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/extensions/toJSON.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/edfapg_sdk.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/ios/edfapg_sdk.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/adapters/EdfaCardPayAdapter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/adapters/EdfaCardPayAdapter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/cardpay/EdfaCardPay.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/cardpay/EdfaCardPay.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/enum/DesignType.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/enum/DesignType.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +69,7 @@
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;devkashif&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kashif/Desktop/AppRack/edfa-pg-flutter-sdk&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/Storage/Projects/Edfapay/Flutter/edfa-pg-flutter-sdk&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,

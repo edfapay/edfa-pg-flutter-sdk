@@ -15,8 +15,8 @@ class EdfaCardPay {
 
   EdfaPgSaleOrder? _order;
   EdfaPgPayer? _payer;
-  DesignType? _designType;
-  EdfaLocale? _locale;
+  EdfaPayDesignType? _designType;
+  EdfaPayLanguage? _locale;
 
   EdfaCardPay setOrder(EdfaPgSaleOrder order) {
     _order = order;
@@ -28,12 +28,12 @@ class EdfaCardPay {
     return this;
   }
 
-  EdfaCardPay setDesignType(DesignType type) {
+  EdfaCardPay setDesignType(EdfaPayDesignType type) {
     _designType = type;
     return this;
   }
 
-  EdfaCardPay setLanguage(EdfaLocale locale) {
+  EdfaCardPay setLanguage(EdfaPayLanguage locale) {
     _locale = locale;
     return this;
   }
@@ -66,8 +66,8 @@ class EdfaCardPay {
     EdfaPgSdk.instance.ADAPTER.CARD_PAY.execute(
         order: _order!,
         payer: _payer!,
-        designType: _designType ?? DesignType.PAYMENT_DESIGN_1,
-        locale: _locale ?? EdfaLocale.EN,
+        designType: _designType ?? EdfaPayDesignType.one,
+        locale: _locale ?? EdfaPayLanguage.en,
 
         callback: CardPayResponseCallback(
             success: (EdfaPgTransactionDetailsSuccess response) {
