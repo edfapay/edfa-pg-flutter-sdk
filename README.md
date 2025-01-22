@@ -130,6 +130,8 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >    EdfaCardPay()
 > >        .setOrder(order)
 > >        .setPayer(payer)
+> >        .setDesignType(EdfaPayDesignType.one)
+> >        .setLanguage(EdfaPayLanguage.ar)
 > >        .onTransactionSuccess((response){
 > >          print("onTransactionSuccess.response ===> ${response.toString()}");
 > >
