@@ -29,6 +29,7 @@ class EdfaPayWithCard {
     return this;
   }
 
+
   EdfaPayWithCard setLanguage(EdfaPayLanguage locale) {
     _locale = locale;
     return this;

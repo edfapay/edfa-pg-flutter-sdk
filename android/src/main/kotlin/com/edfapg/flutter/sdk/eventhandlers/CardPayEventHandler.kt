@@ -51,6 +51,8 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
         EdfaCardPay()
             .setOrder(order)
             .setPayer(payer)
+            .setDesignType(designType)
+            .setLanguage(locale)
             .onTransactionFailure { res, data ->
                 print("$res $data")
                 handleFailure(data!!)
@@ -66,7 +68,6 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
                     onPresent()
                 }
             )
-
     }
 
 
