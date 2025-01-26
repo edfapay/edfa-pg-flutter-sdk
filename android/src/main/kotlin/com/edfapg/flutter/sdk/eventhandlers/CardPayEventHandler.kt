@@ -33,8 +33,6 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
                         val mLocale = EdfaPayLanguage.values().firstOrNull { it.value == locale} ?: EdfaPayLanguage.en
 
                         payWithCard(order, payer, dType, mLocale)
-//                        payWithCardDetails(order, payer)
-
                     }
 
                 }
@@ -69,35 +67,6 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
                 }
             )
     }
-
-
-    fun payWithCardDetails(order:EdfaPgSaleOrder, payer:EdfaPgPayer){
-
-        val card = EdfaPgCard("4458271329748293", 7, 2029, "331")
-
-
-
-        EdfaPayWithCardDetails(context = context)
-            .setOrder(order)
-            .setPayer(payer)
-            .setCard(card)
-            .onTransactionFailure { res, data ->
-                print("$res $data")
-                Toast.makeText(context, "Transaction Failure", Toast.LENGTH_LONG).show()
-            }.onTransactionSuccess { res, data ->
-                print("$res $data")
-                Toast.makeText(context, "Transaction Success", Toast.LENGTH_LONG).show()
-            }
-            .initialize(
-                onError = {
-                    Toast.makeText(context, "onError $it", Toast.LENGTH_LONG).show()
-                },
-                onPresent = {
-
-                }
-            )
-    }
-
 
 
     private fun onPresent(){

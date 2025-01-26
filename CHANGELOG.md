@@ -27,3 +27,9 @@ Exception handling on error
 
 ## 2.0.0
 Added 3 new UI screens for card detail input
+
+## 2.0.0+1
+Added 3 new UI screens for card detail input
+ - Fixes Bug
+ - Enhancement in Code
+ - Changed and Unified Naming Conventions
