@@ -125,9 +125,35 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >    );
 > > ```
 > 
-> > **Payment with Card**
+> > **Payment with Card (SDK UI Design)**
 > > ```dart
 > >    EdfaCardPay()
+> >        .setOrder(order)
+> >        .setPayer(payer)
+> >        .setLanguage(EdfaPayLanguage.ar)
+> >        .setDesignType(EdfaPayDesignType.one) // EdfaPayDesignType.two, EdfaPayDesignType.three
+> >        .onTransactionSuccess((response){
+> >          print("onTransactionSuccess.response ===> ${response.toString()}");
+> >
+> >    }).onTransactionFailure((response){
+> >      print("onTransactionFailure.response ===> ${response.toString()}");
+> >
+> >    }).onError((error){
+> >      print("onError.response ===> ${error.toString()}");
+> >
+> >    }).initialize(context);
+> > ```
+> > 
+> 
+> > **Payment with Card Details**
+> > ```dart
+> > final card = EdfaPgCard(
+> >     number: "123412341234",
+> >     expireMonth: 7,
+> >     expireYear: 2029,
+> >     cvv: "331"
+> > );
+> >  EdfaPayWithCard(card)
 > >        .setOrder(order)
 > >        .setPayer(payer)
 > >        .setDesignType(EdfaPayDesignType.one)
