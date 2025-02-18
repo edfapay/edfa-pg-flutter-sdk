@@ -33,3 +33,12 @@ Added 3 new UI screens for card detail input
  - Fixes Bug
  - Enhancement in Code
  - Changed and Unified Naming Conventions
+
+## 2.0.1
+- Update Card UI
+- Handling double tap on andorid
+- Enhancement
+
+## 2.0.2
+- Update Text Translation
+- Enhancement
