@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/animator-v21/design_appbar_state_list_animator.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/animator-v21/design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/animator-v21/m3_appbar_state_list_animator.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/animator-v21/m3_appbar_state_list_animator.xml"
+    }
+]

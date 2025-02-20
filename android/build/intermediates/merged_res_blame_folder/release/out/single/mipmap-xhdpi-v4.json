@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/mipmap-xhdpi-v4/ic_launcher_foreground.png",
+        "source": "com.edfapg.flutter.sdk-jetified-edfa-pg-android-sdk-2.0.4-28:/mipmap-xhdpi-v4/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/mipmap-xhdpi-v4/ic_launcher.png",
+        "source": "com.edfapg.flutter.sdk-jetified-edfa-pg-android-sdk-2.0.4-28:/mipmap-xhdpi-v4/ic_launcher.png"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/mipmap-xhdpi-v4/ic_launcher_round.png",
+        "source": "com.edfapg.flutter.sdk-jetified-edfa-pg-android-sdk-2.0.4-28:/mipmap-xhdpi-v4/ic_launcher_round.png"
+    }
+]

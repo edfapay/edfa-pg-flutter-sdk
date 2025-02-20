@@ -18,6 +18,8 @@ class EdfaPayWithCard {
   EdfaPgPayer? _payer;
   EdfaPgCard? _card;
   EdfaPayLanguage? _locale;
+  bool? _recurring;
+
 
   EdfaPayWithCard setOrder(EdfaPgSaleOrder order) {
     _order = order;
@@ -32,6 +34,11 @@ class EdfaPayWithCard {
 
   EdfaPayWithCard setLanguage(EdfaPayLanguage locale) {
     _locale = locale;
+    return this;
+  }
+
+  EdfaPayWithCard setRecurring(bool recurring) {
+    _recurring = recurring;
     return this;
   }
 

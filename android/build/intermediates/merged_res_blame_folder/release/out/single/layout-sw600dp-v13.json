@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/layout-sw600dp-v13/mtrl_layout_snackbar.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/layout-sw600dp-v13/mtrl_layout_snackbar.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/layout-sw600dp-v13/design_layout_snackbar.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/layout-sw600dp-v13/design_layout_snackbar.xml"
+    }
+]

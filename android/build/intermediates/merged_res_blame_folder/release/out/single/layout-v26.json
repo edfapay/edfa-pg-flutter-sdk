@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/layout-v26/abc_screen_toolbar.xml",
+        "source": "com.edfapg.flutter.sdk-appcompat-1.6.1-38:/layout-v26/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/layout-v26/mtrl_calendar_month.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/layout-v26/mtrl_calendar_month.xml"
+    }
+]

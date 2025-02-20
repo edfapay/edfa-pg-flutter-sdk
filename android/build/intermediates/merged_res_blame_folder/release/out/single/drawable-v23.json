@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/drawable-v23/mtrl_popupmenu_background_overlay.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/drawable-v23/mtrl_popupmenu_background_overlay.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/drawable-v23/m3_selection_control_ripple.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/drawable-v23/m3_selection_control_ripple.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/drawable-v23/m3_tabs_background.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/drawable-v23/m3_tabs_background.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/drawable-v23/m3_appbar_background.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/drawable-v23/m3_appbar_background.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/drawable-v23/m3_radiobutton_ripple.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/drawable-v23/m3_radiobutton_ripple.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/drawable-v23/m3_tabs_transparent_background.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/drawable-v23/m3_tabs_transparent_background.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/drawable-v23/m3_popupmenu_background_overlay.xml",
+        "source": "com.edfapg.flutter.sdk-material-1.10.0-14:/drawable-v23/m3_popupmenu_background_overlay.xml"
+    },
+    {
+        "merged": "com.edfapg.flutter.sdk-merged_res-64:/drawable-v23/abc_control_background_material.xml",
+        "source": "com.edfapg.flutter.sdk-appcompat-1.6.1-38:/drawable-v23/abc_control_background_material.xml"
+    }
+]
