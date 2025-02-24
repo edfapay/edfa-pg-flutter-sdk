@@ -130,6 +130,7 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >    EdfaCardPay()
 > >        .setOrder(order)
 > >        .setPayer(payer)
+> >        .setRecurring(true) // Set 'true' for enable recurring else don't call the setRecurring
 > >        .setLanguage(EdfaPayLanguage.ar)
 > >        .setDesignType(EdfaPayDesignType.one) // EdfaPayDesignType.two, EdfaPayDesignType.three
 > >        .onTransactionSuccess((response){
@@ -156,6 +157,7 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >  EdfaPayWithCard(card)
 > >        .setOrder(order)
 > >        .setPayer(payer)
+> >        .setRecurring(true) // Set 'true' for enable recurring else don't call the setRecurring
 > >        .setDesignType(EdfaPayDesignType.one)
 > >        .setLanguage(EdfaPayLanguage.ar)
 > >        .onTransactionSuccess((response){

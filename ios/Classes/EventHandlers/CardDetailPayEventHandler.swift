@@ -38,6 +38,9 @@ class CardDetailPayEventHandler : NSObject, FlutterStreamHandler{
             
             let languageCode = (params["EdfaPayLanguage"] as? String) ?? "en"
             let language = languageFrom(code: languageCode)
+
+            let recurring = (params["recurringInit"] as? Bool) ?? false
+
             
     
             // The precise way to present by sdk it self
@@ -46,6 +49,7 @@ class CardDetailPayEventHandler : NSObject, FlutterStreamHandler{
                 .set(payer: payer)
                 .set(card: card)
                 .set(language: language)
+                .set(recurring: recurring)
                 .on(transactionFailure: { result, error in
                     debugPrint("native.transactionFailure.result ==> \(String(describing: result))")
                     debugPrint("native.transactionFailure.error ==> \(String(describing: error))")

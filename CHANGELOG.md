@@ -42,3 +42,19 @@ Added 3 new UI screens for card detail input
 ## 2.0.2
 - Update Text Translation
 - Enhancement
+
+## 2.0.3
+- Added recurring to sale
+  - Added to below
+  >   ### EdfaCardPay
+  >   ```dart
+  >    EdfaCardPay()
+  >       .setRecurring(true/false)
+  >       ...
+  >   ```
+  >   ### EdfaPayWithCard
+  >   ```dart
+  >    EdfaPayWithCard()
+  >       .setRecurring(true/false)
+  >       ...
+  >   ```

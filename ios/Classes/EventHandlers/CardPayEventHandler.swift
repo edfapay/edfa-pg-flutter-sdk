@@ -39,6 +39,8 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
 
             let designType = designTypeFrom(code: designCode)
             let language = languageFrom(code: languageCode)
+
+            let recurring = (params["recurringInit"] as? Bool) ?? false
             
     
             // The precise way to present by sdk it self
@@ -48,6 +50,7 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
                 .set(payer: payer)
                 .set(designType: designType)
                 .set(language: language)
+                .set(recurring: recurring)
                 .on(transactionFailure: { result, error in
                     debugPrint("native.transactionFailure.result ==> \(String(describing: result))")
                     debugPrint("native.transactionFailure.error ==> \(String(describing: error))")
