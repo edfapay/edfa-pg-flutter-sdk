@@ -19,14 +19,14 @@ class EdfaCardPayAdapter extends BaseAdapter{
     Function(dynamic)? onFailure,
     EdfaPayDesignType? designType = EdfaPayDesignType.one,
     EdfaPayLanguage? locale = EdfaPayLanguage.en,
-    bool? recurringSale,
+    bool? recurring,
   }) {
     final params = {
       order.runtimeType.toString(): order.toJson(),
       payer.runtimeType.toString(): payer.toJson(),
       designType.runtimeType.toString(): designType?.name ?? EdfaPayDesignType.one.name,
       locale.runtimeType.toString(): locale?.name ?? EdfaPayLanguage.en.name,
-      "recurringInit": recurringSale,
+      "recurring": recurring,
     };
 
     startCardPay(params).listen((event) {

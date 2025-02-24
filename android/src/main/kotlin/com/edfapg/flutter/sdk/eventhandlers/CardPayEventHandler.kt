@@ -29,7 +29,7 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
                         val payer = Gson().fromJson(Gson().toJson(payerMap), EdfaPgPayer::class.java)
                         val design = (get("EdfaPayDesignType") as? String)
                         val locale = (get("EdfaPayLanguage") as? String)
-                        val recurring = (get("recurringInit") as? Boolean ?: false)
+                        val recurring = (get("recurring") as? Boolean) ?: false
                         val dType = EdfaPayDesignType.values().firstOrNull { it.value == design} ?: EdfaPayDesignType.one
                         val mLocale = EdfaPayLanguage.values().firstOrNull { it.value == locale} ?: EdfaPayLanguage.en
 

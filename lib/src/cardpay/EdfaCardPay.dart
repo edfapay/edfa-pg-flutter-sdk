@@ -78,7 +78,7 @@ class EdfaCardPay {
         payer: _payer!,
         designType: _designType ?? EdfaPayDesignType.one,
         locale: _locale ?? EdfaPayLanguage.en,
-        recurringSale: _recurring,
+        recurring: _recurring,
         callback: CardPayResponseCallback(
             success: (EdfaPgTransactionDetailsSuccess response) {
               Log(response.toJson().toString());

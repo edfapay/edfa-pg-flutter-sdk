@@ -31,8 +31,9 @@ class CardDetailPayEventHandler(private val context: Context): EventChannel.Stre
                             val card = Gson().fromJson(Gson().toJson(cardMap), EdfaPgCard::class.java)
                             val locale = get("EdfaPayLanguage") as? String
                             val mLocale = EdfaPayLanguage.values().firstOrNull { it.value == locale} ?: EdfaPayLanguage.en
+                            val recurring = (get("recurring") as? Boolean ?: false)
 
-                            payWithCardDetails(order, payer, card, mLocale)
+                            payWithCardDetails(order, payer, card, mLocale, recurring)
                         }
                     }
 
@@ -45,11 +46,12 @@ class CardDetailPayEventHandler(private val context: Context): EventChannel.Stre
 
     }
 
-    private fun payWithCardDetails(order:EdfaPgSaleOrder, payer:EdfaPgPayer, card:EdfaPgCard, language:EdfaPayLanguage){
+    private fun payWithCardDetails(order:EdfaPgSaleOrder, payer:EdfaPgPayer, card:EdfaPgCard, language:EdfaPayLanguage, recurring:Boolean){
         EdfaPayWithCardDetails(context = context)
             .setOrder(order)
             .setPayer(payer)
             .setCard(card)
+            .setRecurring(recurring)
             .onTransactionFailure { res, data ->
                 print("$res $data")
                 handleFailure(data!!)
