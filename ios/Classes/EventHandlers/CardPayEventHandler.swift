@@ -40,7 +40,7 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
             let designType = designTypeFrom(code: designCode)
             let language = languageFrom(code: languageCode)
 
-            let recurring = (params["recurringInit"] as? Bool) ?? false
+            let recurring = (params["recurring"] as? Bool) ?? false
             
     
             // The precise way to present by sdk it self

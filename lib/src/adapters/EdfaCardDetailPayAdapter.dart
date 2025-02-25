@@ -26,7 +26,7 @@ class EdfaCardDetailPayAdapter extends BaseAdapter{
       payer.runtimeType.toString(): payer.toJson(),
       card.runtimeType.toString(): card.toJson(),
       locale.runtimeType.toString(): locale?.name ?? EdfaPayLanguage.en.name,
-      "recurring": recurringSale,
+      "recurring": recurring,
     };
 
     startPayWithCardDetail(params).listen((event) {
