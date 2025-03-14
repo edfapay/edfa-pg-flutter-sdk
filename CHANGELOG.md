@@ -58,3 +58,6 @@ Added 3 new UI screens for card detail input
   >       .setRecurring(true/false)
   >       ...
   >   ```
+
+## 2.0.4
+Random bug fix & enhancement
