@@ -61,3 +61,6 @@ Added 3 new UI screens for card detail input
 
 ## 2.0.4
 Random bug fix & enhancement
+
+## 2.0.6
+Random bug fix & enhancement
