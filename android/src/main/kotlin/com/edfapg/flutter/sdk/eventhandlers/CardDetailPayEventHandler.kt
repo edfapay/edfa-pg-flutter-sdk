@@ -32,8 +32,9 @@ class CardDetailPayEventHandler(private val context: Context): EventChannel.Stre
                             val locale = get("EdfaPayLanguage") as? String
                             val mLocale = EdfaPayLanguage.values().firstOrNull { it.value == locale} ?: EdfaPayLanguage.en
                             val recurring = (get("recurring") as? Boolean ?: false)
+                            val auth = (get("auth") as? Boolean ?: false)
 
-                            payWithCardDetails(order, payer, card, mLocale, recurring)
+                            payWithCardDetails(order, payer, card, mLocale, recurring, auth)
                         }
                     }
 
@@ -46,12 +47,13 @@ class CardDetailPayEventHandler(private val context: Context): EventChannel.Stre
 
     }
 
-    private fun payWithCardDetails(order:EdfaPgSaleOrder, payer:EdfaPgPayer, card:EdfaPgCard, language:EdfaPayLanguage, recurring:Boolean){
+    private fun payWithCardDetails(order:EdfaPgSaleOrder, payer:EdfaPgPayer, card:EdfaPgCard, language:EdfaPayLanguage, recurring:Boolean, auth:Boolean){
         EdfaPayWithCardDetails(context = context)
             .setOrder(order)
             .setPayer(payer)
             .setCard(card)
             .setRecurring(recurring)
+            .setAuth(auth)
             .onTransactionFailure { res, data ->
                 print("$res $data")
                 handleFailure(data!!)
@@ -62,14 +64,23 @@ class CardDetailPayEventHandler(private val context: Context): EventChannel.Stre
 
             }.initialize(
                 onError = {
-
+                    handleFailure(it)
                 },
                 onPresent = {
-
+                    onPresent()
                 }
             )
     }
 
+
+    private fun onPresent(){
+        print("onPresent :)")
+        sink?.success(
+            mapOf(
+                "onPresent" to ":)"
+            )
+        )
+    }
 
     private fun handleSuccess(response: EdfaPgGetTransactionDetailsSuccess?){
         print("native.transactionSuccess.data ==> ${response?.toMap()}")

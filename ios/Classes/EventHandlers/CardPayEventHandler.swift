@@ -41,7 +41,8 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
             let language = languageFrom(code: languageCode)
 
             let recurring = (params["recurring"] as? Bool) ?? false
-            
+            let auth = (params["auth"] as? Bool) ?? false
+
     
             // The precise way to present by sdk it self
             var cardDetailVC:UIViewController?
@@ -51,6 +52,7 @@ class CardPayEventHandler : NSObject, FlutterStreamHandler{
                 .set(designType: designType)
                 .set(language: language)
                 .set(recurring: recurring)
+                .set(auth: auth)
                 .on(transactionFailure: { result, error in
                     debugPrint("native.transactionFailure.result ==> \(String(describing: result))")
                     debugPrint("native.transactionFailure.error ==> \(String(describing: error))")

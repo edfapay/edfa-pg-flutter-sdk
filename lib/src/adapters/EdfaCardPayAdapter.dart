@@ -20,6 +20,7 @@ class EdfaCardPayAdapter extends BaseAdapter{
     EdfaPayDesignType? designType = EdfaPayDesignType.one,
     EdfaPayLanguage? locale = EdfaPayLanguage.en,
     bool? recurring,
+    bool? auth,
   }) {
     final params = {
       order.runtimeType.toString(): order.toJson(),
@@ -27,6 +28,7 @@ class EdfaCardPayAdapter extends BaseAdapter{
       designType.runtimeType.toString(): designType?.name ?? EdfaPayDesignType.one.name,
       locale.runtimeType.toString(): locale?.name ?? EdfaPayLanguage.en.name,
       "recurring": recurring,
+      "auth": auth,
     };
 
     startCardPay(params).listen((event) {

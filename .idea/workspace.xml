@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7edbbd58-3e74-4381-8c7a-bb19e5d1a446" name="Changes" comment="Fix naming conventions">
+    <list default="true" id="7edbbd58-3e74-4381-8c7a-bb19e5d1a446" name="Changes" comment="Random bug fix &amp; enhancement in android native">
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardDetailPayEventHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardDetailPayEventHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardPayEventHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardPayEventHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Classes/EventHandlers/CardPayEventHandler.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/EventHandlers/CardPayEventHandler.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/edfapg_sdk.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/ios/edfapg_sdk.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/adapters/EdfaCardDetailPayAdapter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/adapters/EdfaCardDetailPayAdapter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/adapters/EdfaCardPayAdapter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/adapters/EdfaCardPayAdapter.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/cardpay/EdfaCardPay.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/cardpay/EdfaCardPay.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/src/cardpay/EdfaPayWithCardDetails.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/cardpay/EdfaPayWithCardDetails.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +184,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740401161425</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Random bug fix &amp; enhancement in android native">
+      <option name="closed" value="true" />
+      <created>1741952665333</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1741952665333</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,7 +214,8 @@
     <MESSAGE value="Removed unnecessary function/code" />
     <MESSAGE value="added recurring support to iOS channel" />
     <MESSAGE value="Fix naming conventions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix naming conventions" />
+    <MESSAGE value="Random bug fix &amp; enhancement in android native" />
+    <option name="LAST_COMMIT_MESSAGE" value="Random bug fix &amp; enhancement in android native" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

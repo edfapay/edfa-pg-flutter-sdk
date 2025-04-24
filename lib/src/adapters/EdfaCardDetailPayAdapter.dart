@@ -20,6 +20,7 @@ class EdfaCardDetailPayAdapter extends BaseAdapter{
     EdfaPayLanguage? locale = EdfaPayLanguage.en,
     Function(dynamic)? onFailure,
     bool? recurring,
+    bool? auth,
   }) {
     final params = {
       order.runtimeType.toString(): order.toJson(),
@@ -27,6 +28,7 @@ class EdfaCardDetailPayAdapter extends BaseAdapter{
       card.runtimeType.toString(): card.toJson(),
       locale.runtimeType.toString(): locale?.name ?? EdfaPayLanguage.en.name,
       "recurring": recurring,
+      "auth": auth,
     };
 
     startPayWithCardDetail(params).listen((event) {

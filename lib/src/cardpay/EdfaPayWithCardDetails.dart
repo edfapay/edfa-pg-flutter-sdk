@@ -18,7 +18,8 @@ class EdfaPayWithCard {
   EdfaPgPayer? _payer;
   EdfaPgCard? _card;
   EdfaPayLanguage? _locale;
-  bool? _recurring;
+  bool? _recurring = false;
+  bool? _authSale = false;
 
 
   EdfaPayWithCard setOrder(EdfaPgSaleOrder order) {
@@ -39,6 +40,11 @@ class EdfaPayWithCard {
 
   EdfaPayWithCard setRecurring(bool recurring) {
     _recurring = recurring;
+    return this;
+  }
+
+  EdfaPayWithCard setAuth(bool auth) {
+    _authSale = auth;
     return this;
   }
 
@@ -72,6 +78,7 @@ class EdfaPayWithCard {
         card: _card!,
         locale: _locale ?? EdfaPayLanguage.en,
         recurring: _recurring,
+        auth: _authSale,
         callback: CardPayResponseCallback(
             success: (EdfaPgTransactionDetailsSuccess response) {
               Log(response.toJson().toString());
