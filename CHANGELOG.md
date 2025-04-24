@@ -44,7 +44,7 @@ Added 3 new UI screens for card detail input
 - Enhancement
 
 ## 2.0.3
-- Added recurring to sale
+- Added **Recurring** to sale
   - Added to below
   >   ### EdfaCardPay
   >   ```dart
@@ -63,5 +63,20 @@ Added 3 new UI screens for card detail input
 Random bug fix & enhancement
 
 ## 2.0.5
-Enable Auth for sale transaction
+- Added **Auth** to sale transaction
+  - Added to below
+  >   ### EdfaCardPay
+  >   ```dart
+  >    EdfaCardPay()
+  >       .setAuth(true/false)
+  >       ...
+  >   ```
+  >   ### EdfaPayWithCard
+  >   ```dart
+  >    EdfaPayWithCard()
+  >       .setAuth(true/false)
+  >       ...
+  >   ```
+
+
 
