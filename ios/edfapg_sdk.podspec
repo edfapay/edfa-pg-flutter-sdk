@@ -17,7 +17,7 @@ EdfaPgSdk Flutter plugin was developed and designed with one purpose: to help th
   s.dependency 'Flutter'
   s.dependency 'EdfaPgSdk', '~> 2.0.7'
 #   s.dependency 'EdfaPgSdk', :git => 'https://github.com/edfapay/edfa-pg-ios-sdk-pod.git', :branch => 'production'
-  s.platform = :ios, '11.0'
+  s.platform = :ios, '12.0'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }

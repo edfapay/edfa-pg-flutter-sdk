@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7edbbd58-3e74-4381-8c7a-bb19e5d1a446" name="Changes" comment="Random bug fix &amp; enhancement in android native">
+    <list default="true" id="7edbbd58-3e74-4381-8c7a-bb19e5d1a446" name="Changes" comment="Enable Auth for sale transaction">
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/CHANGELOG.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardDetailPayEventHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardDetailPayEventHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardPayEventHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/kotlin/com/edfapg/flutter/sdk/eventhandlers/CardPayEventHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Classes/EventHandlers/CardPayEventHandler.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Classes/EventHandlers/CardPayEventHandler.swift" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ios/edfapg_sdk.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/ios/edfapg_sdk.podspec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/adapters/EdfaCardDetailPayAdapter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/adapters/EdfaCardDetailPayAdapter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/adapters/EdfaCardPayAdapter.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/adapters/EdfaCardPayAdapter.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/cardpay/EdfaCardPay.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/cardpay/EdfaCardPay.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/src/cardpay/EdfaPayWithCardDetails.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/src/cardpay/EdfaPayWithCardDetails.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +46,8 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/edfapay/edfa-pg-flutter-sdk.git&quot;,
-    &quot;accountId&quot;: &quot;bc6fa42f-efd5-43d3-b9fd-453ab07bdf3f&quot;
+    &quot;url&quot;: &quot;https://edfapay@github.com/edfapay/edfa-pg-flutter-sdk.git&quot;,
+    &quot;accountId&quot;: &quot;03a0b3ce-34d2-4838-a4fc-24b191a5d4d5&quot;
   }
 }</component>
   <component name="MarkdownSettingsMigration">
@@ -77,6 +70,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
@@ -192,7 +186,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741952665333</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Enable Auth for sale transaction">
+      <option name="closed" value="true" />
+      <created>1745504887413</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1745504887413</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Enable Auth for sale transaction">
+      <option name="closed" value="true" />
+      <created>1745505464008</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745505464008</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Enable Auth for sale transaction">
+      <option name="closed" value="true" />
+      <created>1753886751469</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1753886751469</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,7 +233,8 @@
     <MESSAGE value="added recurring support to iOS channel" />
     <MESSAGE value="Fix naming conventions" />
     <MESSAGE value="Random bug fix &amp; enhancement in android native" />
-    <option name="LAST_COMMIT_MESSAGE" value="Random bug fix &amp; enhancement in android native" />
+    <MESSAGE value="Enable Auth for sale transaction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enable Auth for sale transaction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
