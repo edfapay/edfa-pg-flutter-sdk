@@ -6,91 +6,102 @@ and uninterrupted payment flow for merchants across industries.
 
 EdfaPay Flutter SDK was developed and designed with one purpose: to help the Flutter developers
 easily integrate the EdfaPay API Payment Platform for a specific merchant.
+[Wiki](https://github.com/edfapay/edfa-pg-flutter-sdk/wiki/2.0.9-%E2%80%90-Flutter-EdfaPay-Payment-Gateway-SDK-Integration-Guide)
 
+## Changelogs
+[2.0.9 - 03/11/2025](https://pub.dev/packages/edfapg_sdk/versions/2.0.9/changelog#209)
 
 ## Installation
 > [!IMPORTANT]
 > ### Configure Repository
 > This Flutter plugin is a wrapper of Android and iOS native libraries.
-> 
+>
 > **Setup Android**
-> 
-> You must add the `jitpack` repository support to the **Gradle** to access and download the native dependency. 
+>
+> You must add the `jitpack` repository support to the **Gradle** to access and download the native dependency.
 >
 > Add below to the `./android/build.gradle` of your project
-> 
-> ```groovy
-> allprojects {
->     repositories {
->         ...
-> 
->         // Add below at the same location 
->         maven {
->             url 'https://jitpack.io'
->         }
->     }
-> }
-> ```
-> ----
 >
-> Or add below to the `./android/settings.gradle` of your project
-> 
-> ```groovy
-> dependencyResolutionManagement {
->     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
->     repositories {
->         ...
-> 
->         // Add below at the same location 
->         maven {
->             url "https://jitpack.io"
->         }
->     }
-> }
-> ```
+> > ```groovy
+> >    allprojects {
+> >        repositories {
+> >            ...
+> >    
+> >            // Add below at the same location 
+> >            maven {
+> >                url 'https://jitpack.io'
+> >            }
+> >        }
+> >    }
+> > ```
+> > ----
+> >
+> > Or add below to the `./android/settings.gradle` of your project
+> >
+> > ```groovy
+> >    dependencyResolutionManagement {
+> >        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+> >        repositories {
+> >            ...
+> >    
+> >            // Add below at the same location 
+> >            maven {
+> >                url "https://jitpack.io"
+> >            }
+> >        }
+> >    }
+> > ```
 >
-> 
+>
 > **Setup iOS**
-> 
+>
 > iOS does not require any setup just install Flutter plugin.
 > If you need to enable `Apple Pay` in your app it can be enabled by following the instructions
 > at [Link](https://github.com/edfapay/edfa-pg-flutter-sdk)
 
 > [!IMPORTANT]
 > ### Intalling Flutter Plugin
-> 
+>
 > In the `dependencies:` section of your `pubspec.yaml`, add the following lines:
-> 
-> ```pubspec.yaml
-> dependencies:
->   intl: ^0.17.0
->   edfapg_sdk: any
-> ```
+>
+> > ```yaml
+> >    dependencies:
+> >      intl: ^0.17.0
+> >      edfapg_sdk: any
+> >    
+> >    
+> >    # ⚠️ IMPORTANT:
+> >    # The "edfapay_properties" key must start at the beginning of the line (no indentation).
+> >    #  - If edfapay_properties not defined in the pubspec.yaml it take the latest version as defined fallback in plugin.
+> >    edfapay_properties:
+> >      pg_android: "2.1.2"
+> >      pg_ios: "2.0.7" ## Coming Soon, currently it will not effect
+> > ```
 
 > [!IMPORTANT]
 > ### Configuring the Proguard Rule
 >
 > **Android**
-> 
+>
 > If your project is obfuscated with proguard, please add the rule below to your android project **proguard-rules.pro**
-> 
-> ```
-> -keep class com.edfapg.sdk.** {
->   public protected private *;
-> }
-> ```
+>
+> > ```text
+> >    -keep class com.edfapg.sdk.** {
+> >         public protected private *;
+> >    }
+> > ```
 
 ## Usage
 > [!IMPORTANT]
 > ### Initialize SDK
-> 
-> ```dart
-> EdfaPgSdk.instance.config(
->   key: MERCHANT_CLIENT_KEY, // Your Secret Merchant Key
->   password: MERCHANT_CLIENT_PASSWORD, // Your Secret Merchant Password
->   enableDebug: true
-> );
-> ```
+> >
+> > ```dart
+> >    EdfaPgSdk.instance.config(
+> >       key: MERCHANT_CLIENT_KEY, // Your Secret Merchant Key
+> >       password: MERCHANT_CLIENT_PASSWORD, // Your Secret Merchant Password
+> >       enableDebug: true
+> >    );
+> > ```
 
 > [!TIP]
 > ### Get Ready for Payment
@@ -124,7 +135,7 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >        )
 > >    );
 > > ```
-> 
+>
 > > **Payment with Card (SDK UI Design)**
 > > ```dart
 > >    EdfaCardPay()
@@ -144,32 +155,32 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >
 > >    }).initialize(context);
 > > ```
-> > 
-> 
+> >
+>
 > > **Payment with Card Details**
 > > ```dart
-> > final card = EdfaPgCard(
-> >     number: "123412341234",
-> >     expireMonth: 7,
-> >     expireYear: 2029,
-> >     cvv: "331"
-> > );
-> >  EdfaPayWithCard(card)
-> >        .setOrder(order)
-> >        .setPayer(payer)
-> >        .setRecurring(true) // Set 'true' for enable recurring else don't call the setRecurring
-> >        .setDesignType(EdfaPayDesignType.one)
-> >        .setLanguage(EdfaPayLanguage.ar)
-> >        .onTransactionSuccess((response){
-> >          print("onTransactionSuccess.response ===> ${response.toString()}");
-> >
-> >    }).onTransactionFailure((response){
-> >      print("onTransactionFailure.response ===> ${response.toString()}");
-> >
-> >    }).onError((error){
-> >      print("onError.response ===> ${error.toString()}");
-> >
-> >    }).initialize(context);
+> >    final card = EdfaPgCard(
+> >        number: "123412341234",
+> >        expireMonth: 7,
+> >        expireYear: 2029,
+> >        cvv: "331"
+> >    );
+> >     EdfaPayWithCard(card)
+> >           .setOrder(order)
+> >           .setPayer(payer)
+> >           .setRecurring(true) // Set 'true' for enable recurring else don't call the setRecurring
+> >           .setDesignType(EdfaPayDesignType.one)
+> >           .setLanguage(EdfaPayLanguage.ar)
+> >           .onTransactionSuccess((response){
+> >             print("onTransactionSuccess.response ===> ${response.toString()}");
+> >  
+> >       }).onTransactionFailure((response){
+> >         print("onTransactionFailure.response ===> ${response.toString()}");
+> >    
+> >       }).onError((error){
+> >         print("onError.response ===> ${error.toString()}");
+> >    
+> >       }).initialize(context);
 > > ```
 >
 > > **Pay With ApplePay - iOS Only**
@@ -195,7 +206,7 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 >
 > ### Addon's
 > > **Create `EdfaPgSaleOrder` & `EdfaPgPayer` Model** [Like This](https://github.com/edfapay/edfa-pg-flutter-sdk-sample?tab=readme-ov-file#get-ready-for-payment)
-> > 
+> >
 > > **Create `EdfaPgSaleOption` Model**
 > > ```dart
 > >     final saleOption = EdfaPgSaleOption(
@@ -203,7 +214,7 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >         recurringInit: true // Make sure recurring is enabled for merchant and [true=if want to do recurring, false=if don't want do recurring]
 > >     );
 > > ```
-> > 
+> >
 > > **Create `EdfaPgCard` Model**
 > > ```dart
 > >     final card = EdfaPgCard(
@@ -213,7 +224,7 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >         cvv: 123
 > >     );
 > > ```
-> > 
+> >
 > > **Sale Transaction** - Make sure to pass null to `saleOption:` and false to `isAuth:`
 > > ```dart
 > >     EdfaPgSdk.instance.ADAPTER.SALE.execute(
@@ -310,7 +321,7 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >         }
 > >     );
 > > ```
-> 
+>
 > > **Capture Transaction**
 > > - `transactionId:` should `transactionId` from success `Sale` with `isAuth:true`
 > > - Card Number should be passed the same used for the `Sale` with `isAuth:true`
@@ -458,6 +469,6 @@ Phone: [+966920031242](tel:+966920033633)
 Email: [support@edfapay.sa](mailto:support@edfapay.sa)  
 7637 Othman Bin Affan St., 2123 Al Ezdihar Dist., 12487 Riyadh, Riyadh, Saudi Arabia
 
-© 2022 - 2023 EdfaPay. All rights reserved.
+© 2022 - 2026 EdfaPay. All rights reserved.
 
 

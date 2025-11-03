@@ -78,5 +78,40 @@ Random bug fix & enhancement
   >       ...
   >   ```
 
+## 2.0.8
+- Random Fix and enhancements
+- Glitch in Card Entry Screen
+
+## 2.0.8+1
+- Random Fix and enhancements
+- Native sdk version via pubspec.yaml at flutter project level
+
+## 2.0.8+2
+- Random Fix and enhancements
+- Fix android gradle fall-back version
+
+## 2.0.9
+- Random Fix and enhancements
+- Fix android gradle fall-back version
+- **Native Version**
+  - Android: **2.1.2**
+  - iOS: **~> 2.0.7**
+- **Developer can now pass the native version for android as below.**
+  - **Android:**
+    - In project `pubspec.yaml` define the edfapay_properties as below:
+    > ```yaml
+    > # ⚠️ IMPORTANT:
+    > # The "edfapay_properties" key must start at the beginning of the line (no indentation).
+    >
+    > edfapay_properties:
+    >   pg_android: "2.1.2"
+    > ```
+    _Note: The "edfapay_properties" key must start at the beginning of the line (no indentation)_
+
+
+- iOS:
+  - Coming soon
+
+
 
 
