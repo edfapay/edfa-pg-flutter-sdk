@@ -140,6 +140,6 @@ app.*.map.json
 /android/key.properties
 android/key.properties
 android/app/upload-keystore.jks
-android/build/**
+android/build
 
 **/android/**/*.hprof
