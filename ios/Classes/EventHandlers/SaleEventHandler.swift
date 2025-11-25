@@ -30,13 +30,16 @@ class SaleEventHandler : NSObject, FlutterStreamHandler{
            let order = params["EdfaPgSaleOrder"] as? [String : Any?],
            let card = params["EdfaPgCard"] as? [String : Any?],
            let payer =  params["EdfaPgPayer"] as? [String : Any?]{
-                 
+
+            let extras = (params["extras"] as? [[String:String]])?.decode([Extra].self) ?? []
+
             saleAdapter.delegate = self
             saleAdapter.execute(
                 order: EdfaPgSaleOrder.from(dictionary: order),
                 card: EdfaPgCard.from(dictionary: card),
                 payer: EdfaPgPayer.from(dictionary: payer),
-                termUrl3ds: "https://expresspay.sa",
+                extras: extras,
+                termUrl3ds: "https://edfapay.com/process-completed",
                 options: nil,
                 auth: auth,
                 callback: handleResponse

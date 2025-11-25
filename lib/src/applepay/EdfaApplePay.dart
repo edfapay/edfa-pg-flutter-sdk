@@ -5,6 +5,8 @@ import 'package:edfapg_sdk/src/request/EdfaPgSaleOrder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:edfapg_sdk/src/Helpers.dart';
 
+import '../request/Extra.dart';
+
 class EdfaApplePay{
   Function(Map response)? _onTransactionFailure;
   Function(Map response)? _onTransactionSuccess;
@@ -14,6 +16,7 @@ class EdfaApplePay{
 
   EdfaPgSaleOrder? _order;
   EdfaPgPayer? _payer;
+  List<Extra> _extras = const [];
   String? _applePayMerchantID;
 
   EdfaApplePay setOrder(EdfaPgSaleOrder order){
@@ -23,6 +26,11 @@ class EdfaApplePay{
 
   EdfaApplePay setPayer(EdfaPgPayer payer){
     _payer = payer;
+    return this;
+  }
+
+  EdfaApplePay setExtras(List<Extra> extras) {
+    _extras = extras;
     return this;
   }
 
@@ -63,6 +71,7 @@ class EdfaApplePay{
         applePayMerchantId: _applePayMerchantID ?? "",
         order: _order!,
         payer: _payer!,
+        extras: _extras,
         callback: ApplePayResponseCallback(
             authentication: (Map response) {
               Log(response.toString());

@@ -30,7 +30,9 @@ class ApplePayEventHandler : NSObject, FlutterStreamHandler{
            let order = params["EdfaPgSaleOrder"] as? [String : Any?],
            let payer =  params["EdfaPgPayer"] as? [String : Any?],
            let applePayMerchantId = params["applePayMerchantId"] as? String{
-             
+
+            let extras = (params["extras"] as? [[String:String]])?.decode([Extra].self) ?? []
+
             let order = EdfaPgSaleOrder.from(dictionary: order)
             let payer = EdfaPgPayer.from(dictionary: payer)
             
@@ -38,6 +40,7 @@ class ApplePayEventHandler : NSObject, FlutterStreamHandler{
             EdfaApplePay()
                 .set(order: order)
                 .set(payer: payer)
+                .set(extras: extras)
                 .set(applePayMerchantID: applePayMerchantId)
                 .enable(logs: ENABLE_DEBUG)
                 .on(authentication: { pk in

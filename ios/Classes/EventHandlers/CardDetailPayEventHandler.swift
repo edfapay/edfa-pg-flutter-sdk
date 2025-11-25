@@ -29,8 +29,9 @@ class CardDetailPayEventHandler : NSObject, FlutterStreamHandler{
            let order = params["EdfaPgSaleOrder"] as? [String : Any?],
            let payer =  params["EdfaPgPayer"] as? [String : Any?],
            let card =  params["EdfaPgCard"] as? [String : Any?]{
-            
-            
+
+            let extras = (params["extras"] as? [[String:String]])?.decode([Extra].self) ?? []
+
             let order = EdfaPgSaleOrder.from(dictionary: order)
             let payer = EdfaPgPayer.from(dictionary: payer)
             let card = EdfaPgCard.from(dictionary: card)
@@ -47,6 +48,7 @@ class CardDetailPayEventHandler : NSObject, FlutterStreamHandler{
             EdfaPayWithCardDetails(viewController: UIApplication.currentViewController()!)
                 .set(order: order)
                 .set(payer: payer)
+                .set(extras: extras)
                 .set(card: card)
                 .set(language: language)
                 .set(recurring: recurring)

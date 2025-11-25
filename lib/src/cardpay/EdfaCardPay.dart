@@ -6,6 +6,8 @@ import 'package:edfapg_sdk/src/request/EdfaPgSaleOrder.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:edfapg_sdk/src/Helpers.dart';
 
+import '../request/Extra.dart';
+
 class EdfaCardPay {
   Function(EdfaPgTransactionDetailsSuccess response)? _onTransactionFailure;
   Function(EdfaPgTransactionDetailsSuccess response)? _onTransactionSuccess;
@@ -15,6 +17,7 @@ class EdfaCardPay {
 
   EdfaPgSaleOrder? _order;
   EdfaPgPayer? _payer;
+  List<Extra> _extras = const [];
   EdfaPayDesignType? _designType;
   EdfaPayLanguage? _locale;
   bool? _recurring = false;
@@ -27,6 +30,11 @@ class EdfaCardPay {
 
   EdfaCardPay setPayer(EdfaPgPayer payer) {
     _payer = payer;
+    return this;
+  }
+
+  EdfaCardPay setExtras(List<Extra> extras) {
+    _extras = extras;
     return this;
   }
 
@@ -82,6 +90,7 @@ class EdfaCardPay {
     EdfaPgSdk.instance.ADAPTER.CARD_PAY.execute(
         order: _order!,
         payer: _payer!,
+        extras: _extras,
         designType: _designType ?? EdfaPayDesignType.one,
         locale: _locale ?? EdfaPayLanguage.en,
         recurring: _recurring,

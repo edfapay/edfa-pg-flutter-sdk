@@ -2,19 +2,21 @@ package com.edfapg.flutter.sdk.eventhandlers
 
 import com.edfapg.flutter.sdk.helper.toMap
 import com.edfapg.sdk.core.EdfaPgSdk
+import com.edfapg.sdk.model.request.Extra
 import com.edfapg.sdk.model.request.card.EdfaPgCard
 import com.edfapg.sdk.model.request.options.EdfaPgSaleOptions
 import com.edfapg.sdk.model.request.order.EdfaPgSaleOrder
 import com.edfapg.sdk.model.request.payer.EdfaPgPayer
 import com.edfapg.sdk.model.response.base.error.EdfaPgError
 import com.edfapg.sdk.model.response.sale.*
+import com.edfapg.sdk.toolbox.EdfaPgUtil
 import com.google.gson.Gson
 import io.flutter.plugin.common.EventChannel
 
 
 class SaleEventHandler: EventChannel.StreamHandler {
     var sink:EventChannel.EventSink? = null
-
+    val gson = Gson()
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
         sink = events
 
@@ -25,17 +27,19 @@ class SaleEventHandler: EventChannel.StreamHandler {
                         (get("EdfaPgPayer") as? Map<*, *>)?.let { payerMap ->
                             (get("EdfaPgCard") as? Map<*, *>)?.let { cardMap ->
                                 (get("auth") as? Boolean)?.let { auth ->
+                                    val extrasJson = (get("extras") as? List<*>) ?: listOf<Map<String,*>>()
+                                    val extras:List<Extra> = gson.fromJson(gson.toJson(extrasJson), ExtrasType)
 
-                                    val order = Gson().fromJson(Gson().toJson(orderMap), EdfaPgSaleOrder::class.java)
-                                    val payer = Gson().fromJson(Gson().toJson(payerMap), EdfaPgPayer::class.java)
-                                    val card = Gson().fromJson(Gson().toJson(cardMap), EdfaPgCard::class.java)
+                                    val order = gson.fromJson(gson.toJson(orderMap), EdfaPgSaleOrder::class.java)
+                                    val payer = gson.fromJson(gson.toJson(payerMap), EdfaPgPayer::class.java)
+                                    val card = gson.fromJson(gson.toJson(cardMap), EdfaPgCard::class.java)
 
                                     var options: EdfaPgSaleOptions? = null
                                     (get("EdfaPgSaleOption") as? Map<*, *>)?.let {
-                                        options = Gson().fromJson(Gson().toJson(payerMap), EdfaPgSaleOptions::class.java)
+                                        options = gson.fromJson(gson.toJson(payerMap), EdfaPgSaleOptions::class.java)
                                     }
 
-                                    sale(auth = auth, order = order, payer = payer, card = card, saleOptions = options)
+                                    sale(auth = auth, order = order, extras = extras, payer = payer, card = card, saleOptions = options)
 
                                     "All params are valid"
                                 } ?: "Missing 'Boolean' auth parameter"
@@ -51,12 +55,13 @@ class SaleEventHandler: EventChannel.StreamHandler {
     override fun onCancel(arguments: Any?) {
     }
 
-    fun sale(auth:Boolean, order:EdfaPgSaleOrder, payer:EdfaPgPayer, card:EdfaPgCard, saleOptions:EdfaPgSaleOptions?){
+    fun sale(auth:Boolean, order:EdfaPgSaleOrder, extras:List<Extra>, payer:EdfaPgPayer, card:EdfaPgCard, saleOptions:EdfaPgSaleOptions?){
         EdfaPgSdk.Adapter.SALE.execute(
             order = order,
             card = card,
             payer = payer,
-            termUrl3ds = "https://pay.EdfaPg.sa/",
+            extras = extras,
+            termUrl3ds = EdfaPgUtil.ProcessCompleteCallbackUrl,
             options = saleOptions,
             auth = auth,
             callback = object : EdfaPgSaleCallback {

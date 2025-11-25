@@ -29,6 +29,18 @@ extension Encodable{
     }
 }
 
+extension Array where Element == [String: String] {
+    func decode<T: Decodable>(_ type: T.Type) -> T? {
+        do {
+            let data = try JSONSerialization.data(withJSONObject: self)
+            return try JSONDecoder().decode(type, from: data)
+        } catch {
+            print("decode error:", error)
+            return nil
+        }
+    }
+}
+
 
 extension EdfaPgError{
     func json() -> [String: Any]?{

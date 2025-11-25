@@ -1,3 +1,19 @@
+# require 'yaml'
+#
+# # Load version from YAML file at project root
+# # Adjust path if the YAML file is in another location (e.g., one level higher)
+# properties_path = File.expand_path('../edfapay_properties.yaml', __FILE__)
+#
+# properties = {}
+# if File.exist?(properties_path)
+#  properties = YAML.load_file(properties_path)
+# else
+#  puts "[WARN] edfapay_properties.yaml not found at #{properties_path}"
+# end
+#
+# # Read version from YAML, or use fallback
+# pg_ios_version = properties.dig('edfapay_properties', 'pg_ios') || '2.0.7'
+
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
 # Run `pod lib lint expresspay_sdk.podspec` to validate before publishing.
@@ -11,11 +27,12 @@ EdfaPgSdk Flutter plugin was developed and designed with one purpose: to help th
                        DESC
   s.homepage         = 'https://edfapay.com'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'EdfaPay' => 'admin@edfapay.com' }
+  s.author           = { 'EdfaPay' => 'info@edfapay.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'EdfaPgSdk', '~> 2.0.7'
+  s.dependency 'EdfaPgSdk', '~> 2.1.1'
+#   s.dependency 'EdfaPgSdk', '~> #{pg_ios_version}'
 #   s.dependency 'EdfaPgSdk', :git => 'https://github.com/edfapay/edfa-pg-ios-sdk-pod.git', :branch => 'production'
   s.platform = :ios, '12.0'
 

@@ -111,6 +111,42 @@ Random bug fix & enhancement
 
 - iOS:
   - Coming soon
+  - 
+
+## 2.0.9+6
+- 2.0.9
+  - Random Fix and enhancements
+  - Fix android gradle fall-back version
+  - **Native Version**
+    - Android: **2.1.2**
+    - iOS: **~> 2.0.7**
+  - **Developer can now pass the native version for android as below.**
+    - **Android:**
+      - In project `pubspec.yaml` define the edfapay_properties as below:
+    >   ```yaml
+    >   # ⚠️ IMPORTANT:
+    >   # The "edfapay_properties" key must start at the beginning of the line (no indentation).
+    >
+    >   edfapay_properties:
+    >     pg_android: "2.1.2"
+    >   ```
+      _Note: The "edfapay_properties" key must start at the beginning of the line (no indentation)_
+    
+    ------
+    - **iOS**:
+        - Coming soon
+- +1
+    - Random Fix
+- +2
+    - Random Fix
+- +3
+    - Random Fix
+- +4
+    - Random Fix
+- +5
+    - Random Fix
+- +6
+    - Allow adding extra info in sale
 
 
 

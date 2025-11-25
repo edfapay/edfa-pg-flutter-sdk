@@ -10,11 +10,14 @@ import 'package:edfapg_sdk/src/enum/DesignType.dart';
 import 'package:edfapg_sdk/src/request/EdfaPgPayer.dart';
 import 'package:edfapg_sdk/src/request/EdfaPgSaleOrder.dart';
 
+import '../request/Extra.dart';
+
 class EdfaCardDetailPayAdapter extends BaseAdapter{
 
   execute({
     required EdfaPgSaleOrder order,
     required EdfaPgPayer payer,
+    List<Extra> extras = const [],
     required EdfaPgCard card,
     required CardPayResponseCallback? callback,
     EdfaPayLanguage? locale = EdfaPayLanguage.en,
@@ -22,11 +25,12 @@ class EdfaCardDetailPayAdapter extends BaseAdapter{
     bool? recurring,
     bool? auth,
   }) {
+    List extrasJson = extras.map((xtra){ return xtra.toJson(); }).toList();
     final params = {
       order.runtimeType.toString(): order.toJson(),
       payer.runtimeType.toString(): payer.toJson(),
       card.runtimeType.toString(): card.toJson(),
-      locale.runtimeType.toString(): locale?.name ?? EdfaPayLanguage.en.name,
+      "extras": extrasJson,
       "recurring": recurring,
       "auth": auth,
     };

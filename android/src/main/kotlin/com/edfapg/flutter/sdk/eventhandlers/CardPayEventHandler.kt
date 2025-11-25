@@ -1,9 +1,8 @@
 package com.edfapg.flutter.sdk.eventhandlers
 
 import android.content.Context
-import android.widget.Toast
 import com.edfapg.flutter.sdk.helper.toMap
-import com.edfapg.sdk.model.request.card.EdfaPgCard
+import com.edfapg.sdk.model.request.Extra
 import com.edfapg.sdk.model.request.order.EdfaPgSaleOrder
 import com.edfapg.sdk.model.request.payer.EdfaPgPayer
 import com.edfapg.sdk.model.response.base.error.EdfaPgError
@@ -11,13 +10,15 @@ import com.edfapg.sdk.model.response.gettransactiondetails.EdfaPgGetTransactionD
 import com.edfapg.sdk.toolbox.EdfaPayDesignType
 import com.edfapg.sdk.toolbox.EdfaPayLanguage
 import com.edfapg.sdk.views.edfacardpay.EdfaCardPay
-import com.edfapg.sdk.views.edfacardpay.EdfaPayWithCardDetails
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import io.flutter.plugin.common.EventChannel
 import java.io.Serializable
 
+internal val ExtrasType = object : TypeToken<List<Extra>>() {}.type
 class CardPayEventHandler(private val context: Context): EventChannel.StreamHandler {
     var sink:EventChannel.EventSink? = null
+    private val gson = Gson()
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
         sink = events
@@ -25,8 +26,11 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
             with(it) {
                 (get("EdfaPgSaleOrder") as? Map<*, *>)?.let { orderMap ->
                     (get("EdfaPgPayer") as? Map<*, *>)?.let { payerMap ->
-                        val order = Gson().fromJson(Gson().toJson(orderMap), EdfaPgSaleOrder::class.java)
-                        val payer = Gson().fromJson(Gson().toJson(payerMap), EdfaPgPayer::class.java)
+                        val extrasJson = (get("extras") as? List<*>) ?: listOf<Map<String,*>>()
+                        val extras:List<Extra> = gson.fromJson(gson.toJson(extrasJson), ExtrasType)
+
+                        val order = gson.fromJson(gson.toJson(orderMap), EdfaPgSaleOrder::class.java)
+                        val payer = gson.fromJson(gson.toJson(payerMap), EdfaPgPayer::class.java)
                         val design = (get("EdfaPayDesignType") as? String)
                         val locale = (get("EdfaPayLanguage") as? String)
                         val recurring = (get("recurring") as? Boolean) ?: false
@@ -34,7 +38,7 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
                         val dType = EdfaPayDesignType.values().firstOrNull { it.value == design} ?: EdfaPayDesignType.one
                         val mLocale = EdfaPayLanguage.values().firstOrNull { it.value == locale} ?: EdfaPayLanguage.en
 
-                        payWithCard(order, payer, dType, mLocale, recurring, auth)
+                        payWithCard(order, payer,extras, dType, mLocale, recurring, auth)
                     }
 
                 }
@@ -47,11 +51,12 @@ class CardPayEventHandler(private val context: Context): EventChannel.StreamHand
     }
 
 
-    fun payWithCard(order:EdfaPgSaleOrder, payer:EdfaPgPayer, designType:EdfaPayDesignType, locale:EdfaPayLanguage,
+    fun payWithCard(order:EdfaPgSaleOrder, payer:EdfaPgPayer, extras:List<Extra>, designType:EdfaPayDesignType, locale:EdfaPayLanguage,
                     recurring:Boolean, auth:Boolean){
         EdfaCardPay()
             .setOrder(order)
             .setPayer(payer)
+            .setExtras(extras)
             .setDesignType(designType)
             .setLanguage(locale)
             .setRecurring(recurring)

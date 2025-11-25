@@ -23,6 +23,7 @@ export 'src/request/EdfaPgPayerOption.dart';
 export 'src/request/EdfaPgRecurringOptions.dart';
 export 'src/request/EdfaPgSaleOptions.dart';
 export 'src/request/EdfaPgSaleOrder.dart';
+export 'src/request/Extra.dart';
 
 
 export 'src/response/base/result/IDetailsResult.dart';

@@ -3,6 +3,7 @@ package com.edfapg.flutter.sdk.eventhandlers
 import android.content.Context
 import android.widget.Toast
 import com.edfapg.flutter.sdk.helper.toMap
+import com.edfapg.sdk.model.request.Extra
 import com.edfapg.sdk.model.request.card.EdfaPgCard
 import com.edfapg.sdk.model.request.order.EdfaPgSaleOrder
 import com.edfapg.sdk.model.request.payer.EdfaPgPayer
@@ -21,20 +22,24 @@ class CardDetailPayEventHandler(private val context: Context): EventChannel.Stre
 
     override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
         sink = events
+        val gson = Gson()
         (arguments as? Map<*, *>)?.let {
             with(it) {
                 (get("EdfaPgSaleOrder") as? Map<*, *>)?.let { orderMap ->
                     (get("EdfaPgPayer") as? Map<*, *>)?.let { payerMap ->
                         (get("EdfaPgCard") as? Map<*, *>)?.let { cardMap ->
-                            val order = Gson().fromJson(Gson().toJson(orderMap), EdfaPgSaleOrder::class.java)
-                            val payer = Gson().fromJson(Gson().toJson(payerMap), EdfaPgPayer::class.java)
-                            val card = Gson().fromJson(Gson().toJson(cardMap), EdfaPgCard::class.java)
+                            val extrasJson = (get("extras") as? List<*>) ?: listOf<Map<String,*>>()
+                            val extras:List<Extra> = gson.fromJson(gson.toJson(extrasJson), ExtrasType)
+
+                            val order = gson.fromJson(gson.toJson(orderMap), EdfaPgSaleOrder::class.java)
+                            val payer = gson.fromJson(gson.toJson(payerMap), EdfaPgPayer::class.java)
+                            val card = gson.fromJson(gson.toJson(cardMap), EdfaPgCard::class.java)
                             val locale = get("EdfaPayLanguage") as? String
                             val mLocale = EdfaPayLanguage.values().firstOrNull { it.value == locale} ?: EdfaPayLanguage.en
                             val recurring = (get("recurring") as? Boolean ?: false)
                             val auth = (get("auth") as? Boolean ?: false)
 
-                            payWithCardDetails(order, payer, card, mLocale, recurring, auth)
+                            payWithCardDetails(order, payer, card, extras,mLocale, recurring, auth)
                         }
                     }
 
@@ -47,10 +52,11 @@ class CardDetailPayEventHandler(private val context: Context): EventChannel.Stre
 
     }
 
-    private fun payWithCardDetails(order:EdfaPgSaleOrder, payer:EdfaPgPayer, card:EdfaPgCard, language:EdfaPayLanguage, recurring:Boolean, auth:Boolean){
+    private fun payWithCardDetails(order:EdfaPgSaleOrder, payer:EdfaPgPayer, card:EdfaPgCard, extras:List<Extra>, language:EdfaPayLanguage, recurring:Boolean, auth:Boolean){
         EdfaPayWithCardDetails(context = context)
             .setOrder(order)
             .setPayer(payer)
+            .setExtras(extras)
             .setCard(card)
             .setRecurring(recurring)
             .setAuth(auth)
