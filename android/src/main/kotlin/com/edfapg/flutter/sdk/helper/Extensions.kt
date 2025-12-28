@@ -1,9 +1,12 @@
 package com.edfapg.flutter.sdk.helper
 
+import com.edfapg.sdk.model.request.Extra
 import com.edfapg.sdk.model.response.base.EdfaPgResponse
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.io.Serializable
 
+internal val ExtrasType = object : TypeToken<List<Extra>>() {}.type
 
 fun Serializable.toJSON() = Gson().toJson(this)
 fun Serializable.toMap() = Gson().fromJson(toJSON(), Map::class.java)

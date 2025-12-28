@@ -11,6 +11,7 @@ const TRANSACTION_LOGS_EVENT_CHANNEL = "com.edfapg.flutter.sdk.transactionlogs";
 
 const CARD_PAY_EVENT_CHANNEL = "com.edfapg.flutter.sdk.cardpay";
 const CARD_DETAIL_PAY_EVENT_CHANNEL = "com.edfapg.flutter.sdk.cardDetailPay";
+const SADAD_PAY_EVENT_CHANNEL = "com.edfapg.flutter.sdk.sadadpay";
 const APPLE_PAY_EVENT_CHANNEL = "com.edfapg.flutter.sdk.applepay";
 
 abstract class EdfaPgPlatformChannels{
@@ -25,6 +26,7 @@ abstract class EdfaPgPlatformChannels{
 
   final cardPay = const EventChannel(CARD_PAY_EVENT_CHANNEL);
   final cardDetailPay = const EventChannel(CARD_DETAIL_PAY_EVENT_CHANNEL);
+  final sadadPay = const EventChannel(SADAD_PAY_EVENT_CHANNEL);
   final applePay = const EventChannel(APPLE_PAY_EVENT_CHANNEL);
 
 }

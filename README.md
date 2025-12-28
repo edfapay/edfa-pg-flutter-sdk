@@ -9,7 +9,8 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 [Wiki](https://github.com/edfapay/edfa-pg-flutter-sdk/wiki/2.0.9-%E2%80%90-Flutter-EdfaPay-Payment-Gateway-SDK-Integration-Guide)
 
 ## Changelogs
-[2.0.9 - 03/11/2025](https://pub.dev/packages/edfapg_sdk/versions/2.0.9/changelog#209)
+[2.0.10 - 28/12/2025](https://pub.dev/packages/edfapg_sdk/versions/2.0.10/changelog#2010)
+| [2.0.9 - 03/11/2025](https://pub.dev/packages/edfapg_sdk/versions/2.0.9/changelog#209)
 
 ## Installation
 > [!IMPORTANT]
@@ -74,7 +75,7 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >    # The "edfapay_properties" key must start at the beginning of the line (no indentation).
 > >    #  - If edfapay_properties not defined in the pubspec.yaml it take the latest version as defined fallback in plugin.
 > >    edfapay_properties:
-> >      pg_android: "2.1.2"
+> >      pg_android: "2.1.4"
 > >      pg_ios: "2.0.7" ## Coming Soon, currently it will not effect
 > > ```
 
@@ -145,18 +146,17 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >        .setLanguage(EdfaPayLanguage.ar)
 > >        .setDesignType(EdfaPayDesignType.one) // EdfaPayDesignType.two, EdfaPayDesignType.three
 > >        .onTransactionSuccess((response){
-> >          print("onTransactionSuccess.response ===> ${response.toString()}");
+> >             print("onTransactionSuccess.response ===> ${response.toString()}");
 > >
 > >    }).onTransactionFailure((response){
 > >      print("onTransactionFailure.response ===> ${response.toString()}");
 > >
 > >    }).onError((error){
-> >      print("onError.response ===> ${error.toString()}");
+> >      print("onError.error ===> ${error.toString()}");
 > >
 > >    }).initialize(context);
 > > ```
-> >
->
+> 
 > > **Payment with Card Details**
 > > ```dart
 > >    final card = EdfaPgCard(
@@ -182,6 +182,26 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >    
 > >       }).initialize(context);
 > > ```
+>
+> > **Payment with Sadad**
+> >```dart 
+> >   EdfaSadadPay()
+> >       .setOrderId("Unique order_id as string")
+> >       .setOrderDescription("Description of the order")
+> >       .setOrderAmount(24.0)
+> >       .setCustomerName("Merchant customer name here")
+> >       .setMobileNumber("Merchant customer mobile number here in format: 966500409598")
+> >       .onSuccess((response){
+> >           print("Transaction Success: ${response.toString()}");
+> >
+> >   }).onFailure((errors, exception){
+> >       print("Transaction Failed: ${errors?.errorMessage}");
+> >
+> >   }).initialize((errors){
+> >       print("Initialize errors: $errors");
+> >
+> >   });
+> >```
 >
 > > **Pay With ApplePay - iOS Only**
 > > ```dart

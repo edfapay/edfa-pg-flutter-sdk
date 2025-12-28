@@ -2,6 +2,7 @@ package com.edfapg.flutter.sdk.eventhandlers
 
 import android.content.Context
 import android.widget.Toast
+import com.edfapg.flutter.sdk.helper.ExtrasType
 import com.edfapg.flutter.sdk.helper.toMap
 import com.edfapg.sdk.model.request.Extra
 import com.edfapg.sdk.model.request.card.EdfaPgCard

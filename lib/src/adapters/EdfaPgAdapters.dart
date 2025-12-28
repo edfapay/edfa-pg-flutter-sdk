@@ -2,6 +2,7 @@ import 'package:edfapg_sdk/src/adapters/EdfaApplePayAdapter.dart';
 import 'package:edfapg_sdk/src/adapters/EdfaCardPayAdapter.dart';
 import 'package:edfapg_sdk/src/adapters/EdfaPgGetTransactionDetailsAdapter.dart';
 import 'package:edfapg_sdk/src/adapters/EdfaPgGetTransactionStatusAdapter.dart';
+import 'package:edfapg_sdk/src/adapters/EdfaSadadPayAdapter.dart';
 
 import 'EdfaCardDetailPayAdapter.dart';
 import 'EdfaPgCaptureAdapter.dart';
@@ -10,6 +11,7 @@ import 'EdfaPgRecurringSaleAdapter.dart';
 import 'EdfaPgSaleAdapter.dart';
 
 class EdfaPgAdapters{
+  final SADAD_PAY = EdfaSadadPayAdapter();
   final CARD_PAY = EdfaCardPayAdapter();
   final CARD_DETAIL_PAY = EdfaCardDetailPayAdapter();
   final APPLE_PAY = EdfaApplePayAdapter();

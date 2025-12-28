@@ -11,6 +11,7 @@ abstract class BaseAdapter extends EdfaPgPlatformChannels{
   StreamReturnType startTransactionsStatus(Map<String,dynamic> params) => transactionsStatus.receiveBroadcastStream(params).map((event) => event as Map);
   StreamReturnType startTransactionsDetail(Map<String,dynamic> params) => transactionsDetail.receiveBroadcastStream(params).map((event) => event as Map);
 
+  StreamReturnType startSadadPay(Map<String,dynamic> params) => sadadPay.receiveBroadcastStream(params).map((event) => event as Map);
   StreamReturnType startCardPay(Map<String,dynamic> params) => cardPay.receiveBroadcastStream(params).map((event) => event as Map);
   StreamReturnType startPayWithCardDetail(Map<String,dynamic> params) => cardDetailPay.receiveBroadcastStream(params).map((event) => event as Map);
   StreamReturnType startApplePay(Map<String,dynamic> params) => applePay.receiveBroadcastStream(params).map((event) => event as Map);

@@ -1,6 +1,7 @@
 package com.edfapg.flutter.sdk.eventhandlers
 
 import android.content.Context
+import com.edfapg.flutter.sdk.helper.ExtrasType
 import com.edfapg.flutter.sdk.helper.toMap
 import com.edfapg.sdk.model.request.Extra
 import com.edfapg.sdk.model.request.order.EdfaPgSaleOrder
@@ -11,11 +12,10 @@ import com.edfapg.sdk.toolbox.EdfaPayDesignType
 import com.edfapg.sdk.toolbox.EdfaPayLanguage
 import com.edfapg.sdk.views.edfacardpay.EdfaCardPay
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import io.flutter.plugin.common.EventChannel
 import java.io.Serializable
 
-internal val ExtrasType = object : TypeToken<List<Extra>>() {}.type
+
 class CardPayEventHandler(private val context: Context): EventChannel.StreamHandler {
     var sink:EventChannel.EventSink? = null
     private val gson = Gson()

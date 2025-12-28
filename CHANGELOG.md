@@ -147,6 +147,30 @@ Random bug fix & enhancement
     - Random Fix
 - +6
     - Allow adding extra info in sale
+- +7, +8
+    - Fix at native android (vector drawable was crashing the app)
+
+## 2.0.10
+**Payment with Sadad**: Added feature to pay with SADAD number.
+- It will generate the Sadad/Bill numbers and returns in **`onSuccess`** callback
+>```dart 
+>   EdfaSadadPay()
+>       .setOrderId("Unique order_id as string")
+>       .setOrderDescription("Description of the order")
+>       .setOrderAmount(24.0)
+>       .setCustomerName("Merchant customer name here")
+>       .setMobileNumber("Merchant customer mobile number here in format: 966500409598")
+>       .onSuccess((response){
+>           print("Transaction Success: ${response.toString()}");
+>
+>   }).onFailure((errors, exception){
+>       print("Transaction Failed: ${errors?.errorMessage}");
+>
+>   }).initialize((errors){
+>       print("Initialize errors: $errors");
+>
+>   });
+>```
 
 
 

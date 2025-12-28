@@ -63,6 +63,7 @@ export 'src/response/sale/SaleResult.dart';
 
 export 'src/cardpay/EdfaCardPay.dart';
 export 'src/cardpay/EdfaPayWithCardDetails.dart';
+export 'src/sadadpay/EdfaSadadPay.dart';
 export 'src/applepay/EdfaApplePay.dart';
 
 

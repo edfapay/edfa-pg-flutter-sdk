@@ -26,6 +26,9 @@ class EdfaPgError {
       json['errors'].forEach((v) {
         errors?.add(EdfaPgExactError.fromJson(v));
       });
+      if(errors?.isEmpty == true){
+        errors?.add(EdfaPgExactError(errorCode: errorCode, errorMessage: errorMessage));
+      }
     }
   }
   Map<String, dynamic> toJson() {

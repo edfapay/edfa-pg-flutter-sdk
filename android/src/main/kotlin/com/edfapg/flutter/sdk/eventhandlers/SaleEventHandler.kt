@@ -1,5 +1,6 @@
 package com.edfapg.flutter.sdk.eventhandlers
 
+import com.edfapg.flutter.sdk.helper.ExtrasType
 import com.edfapg.flutter.sdk.helper.toMap
 import com.edfapg.sdk.core.EdfaPgSdk
 import com.edfapg.sdk.model.request.Extra
@@ -8,7 +9,14 @@ import com.edfapg.sdk.model.request.options.EdfaPgSaleOptions
 import com.edfapg.sdk.model.request.order.EdfaPgSaleOrder
 import com.edfapg.sdk.model.request.payer.EdfaPgPayer
 import com.edfapg.sdk.model.response.base.error.EdfaPgError
-import com.edfapg.sdk.model.response.sale.*
+import com.edfapg.sdk.model.response.sale.EdfaPgSale3Ds
+import com.edfapg.sdk.model.response.sale.EdfaPgSaleCallback
+import com.edfapg.sdk.model.response.sale.EdfaPgSaleDecline
+import com.edfapg.sdk.model.response.sale.EdfaPgSaleRecurring
+import com.edfapg.sdk.model.response.sale.EdfaPgSaleRedirect
+import com.edfapg.sdk.model.response.sale.EdfaPgSaleResponse
+import com.edfapg.sdk.model.response.sale.EdfaPgSaleResult
+import com.edfapg.sdk.model.response.sale.EdfaPgSaleSuccess
 import com.edfapg.sdk.toolbox.EdfaPgUtil
 import com.google.gson.Gson
 import io.flutter.plugin.common.EventChannel
