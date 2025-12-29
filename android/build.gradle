@@ -25,33 +25,22 @@ allprojects {
     }
 }
 
-import org.yaml.snakeyaml.Yaml
-
-
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 def getPgSdkVersion() {
-    def pg_android_fallback = "2.1.+"
-    println("[EdfaPay] Extracting android native sdk version from project pubspec.yaml")
+    def pg_android_fallback = "2.1.5"
 
-    def projectDir = rootProject.projectDir
-    def yamlFile = file("$projectDir/../pubspec.yaml")
-    println("[EdfaPay] Project yaml >>> $yamlFile")
-    if (!yamlFile.exists()) {
-        println("[EdfaPay] Project yaml not exist using fallback version >>> $pg_android_fallback")
-        return pg_android_fallback
+    def properties = new Properties()
+    def propertiesFile = new File(buildFile.parent, 'edfapay_properties.properties')
+    if (propertiesFile.exists()) {
+        properties.load(new FileInputStream(propertiesFile))
     }
-    def yamlContent = new String(yamlFile.readBytes())
-    def yaml = new Yaml()
-    def data = yaml.load(yamlContent)
-    def version = data["edfapay_properties"]?["pg_android"]
-    if(version == null){
-        println("[EdfaPay] Project yaml does not contains `edfapay_properties.pg_android`, using fallback version >>> $pg_android_fallback")
-        return pg_android_fallback
-    }else
-        return version
+    def v = properties.getProperty('EDFAPG_SDK_VERSION', pg_android_fallback)
+    println("EDFAPG_SDK_VERSION: $v")
+    return v
 }
+
 
 def root = rootProject
 android {
@@ -97,51 +86,3 @@ android {
         implementation 'com.google.code.gson:gson:2.9.0'
     }
 }
-
-//beforeEvaluate {
-//    rootProject.allprojects.findAll { it.plugins.hasPlugin("com.android.application") }.each { appModule ->
-//        def androidExt = appModule.extensions.findByName("android")
-//        if (androidExt != null) {
-//            def minSdk = androidExt.defaultConfig.minSdkVersion.apiLevel
-//
-//            // Only enable desugaring if needed
-//            if (minSdk < 26 || minSdk >= 26) {
-//                def compileOptions = androidExt.compileOptions
-//
-//                // Enable only if not already true
-//                if (!compileOptions.coreLibraryDesugaringEnabled) {
-//                    appModule.logger.lifecycle("🔧 Enabling core library desugaring for ${appModule.name} (minSdk=$minSdk)")
-//                    compileOptions.coreLibraryDesugaringEnabled true
-//                }
-//
-//                // Add dependency only if not already added
-//                def hasDesugarDep = appModule.configurations.findByName("coreLibraryDesugaring")
-//                        ?.dependencies
-//                        ?.any { it.group == "com.android.tools" && it.name == "desugar_jdk_libs" } ?: false
-//
-//                if (!hasDesugarDep) {
-//                    appModule.logger.lifecycle("🔧 Adding desugar_jdk_libs dependency for ${appModule.name}")
-//                    appModule.dependencies.add("coreLibraryDesugaring", "com.android.tools:desugar_jdk_libs:2.0.4")
-//                }
-//            } else {
-//                appModule.logger.lifecycle("✅ ${appModule.name} has minSdk=$minSdk, desugaring not needed, if still warn by gradle you can add manually as below")
-//                appModule.logger.lifecycle("""
-//    android {
-//         ...
-//         compileOptions {
-//             isCoreLibraryDesugaringEnabled = true // For .gradle.kts
-//             coreLibraryDesugaringEnabled = true // For .gradle
-//         }
-//         ...
-//    }
-//""")
-//
-//                appModule.logger.lifecycle("""
-//    dependencies {
-//        coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
-//    }
-//""")
-//            }
-//        }
-//    }
-//}

@@ -151,26 +151,47 @@ Random bug fix & enhancement
     - Fix at native android (vector drawable was crashing the app)
 
 ## 2.0.10
-**Payment with Sadad**: Added feature to pay with SADAD number.
-- It will generate the Sadad/Bill numbers and returns in **`onSuccess`** callback
->```dart 
->   EdfaSadadPay()
->       .setOrderId("Unique order_id as string")
->       .setOrderDescription("Description of the order")
->       .setOrderAmount(24.0)
->       .setCustomerName("Merchant customer name here")
->       .setMobileNumber("Merchant customer mobile number here in format: 966500409598")
->       .onSuccess((response){
->           print("Transaction Success: ${response.toString()}");
->
->   }).onFailure((errors, exception){
->       print("Transaction Failed: ${errors?.errorMessage}");
->
->   }).initialize((errors){
->       print("Initialize errors: $errors");
->
->   });
->```
+- **Native Versions**: Android **2.1.5** | iOS **~> 2.1.2**
+- **Payment with Sadad**: 
+  - Added feature to pay with SADAD number.
+  - It will generate the Sadad/Bill numbers and returns in **` onSuccess `** callback
+    ```dart 
+       EdfaSadadPay()
+          .setOrderId("Unique order_id as string")
+          .setOrderDescription("Description of the order")
+          .setOrderAmount(24.0)
+          .setCustomerName("Merchant customer name here")
+          .setMobileNumber("Merchant customer mobile number here in format: 966500409598")
+          .onSuccess((response){
+              print("Transaction Success: ${response.toString()}");
+    
+          }).onFailure((errors, exception){
+                print("Transaction Failed: ${errors?.errorMessage}");
+    
+          }).initialize((errors){
+                 print("Initialize errors: $errors");
+    
+          });
+    ```
+## 2.0.10+1
+  - **Default Native Versions:** Android **2.1.5** | iOS **~> 2.1.3**
+  - Random Fix and enhancements 
+  - Force **`en_US`** locale to NumberFormatter to fix issue in arabic App language **(iOS)**
+  - **Developer can now pass the native version for android and ios as below.**
+    - In project `pubspec.yaml` define the edfapay_properties as below:
+      ```yaml
+         # ⚠️ IMPORTANT:
+         # The "edfapay_properties" key must start at the beginning of the line (no indentation).
+         edfapay_properties:
+           pg_android: "2.1.5"
+           pg_ios: "2.1.3"
+      ```
+      - **Note 1:** _The "edfapay_properties" key must start at the beginning of the line (no indentation)_
+      - **Note 2:** _If the edfapay_properties or version not defined it will take default version as defined in plugin_
+
+
+
+
 
 
 

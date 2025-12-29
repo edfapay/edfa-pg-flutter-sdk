@@ -63,7 +63,7 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > [!IMPORTANT]
 > ### Intalling Flutter Plugin
 >
-> In the `dependencies:` section of your `pubspec.yaml`, add the following lines:
+> In project `pubspec.yaml` define the edfapay_properties as below:
 >
 > > ```yaml
 > >    dependencies:
@@ -73,10 +73,10 @@ easily integrate the EdfaPay API Payment Platform for a specific merchant.
 > >    
 > >    # ⚠️ IMPORTANT:
 > >    # The "edfapay_properties" key must start at the beginning of the line (no indentation).
-> >    #  - If edfapay_properties not defined in the pubspec.yaml it take the latest version as defined fallback in plugin.
+> >    #  - If edfapay_properties not defined in the pubspec.yaml it take the version as defined in plugin.
 > >    edfapay_properties:
-> >      pg_android: "2.1.4"
-> >      pg_ios: "2.0.7" ## Coming Soon, currently it will not effect
+> >      pg_android: "2.1.5"
+> >      pg_ios: "2.1.3"
 > > ```
 
 > [!IMPORTANT]
